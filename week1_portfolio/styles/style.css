@@ -1,0 +1,6 @@
+/* Resetting the engine defaults */
+body {
+    background-color: #1a1a1a; /* Dark Mode (Engine Grey) */
+    color: #00ff00;            /* Terminal Green */
+    font-family: monospace;
+}
