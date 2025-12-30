@@ -1,46 +1,185 @@
 <!DOCTYPE html>
+<!-- 
+DOCTYPE = Document Type Declaration
+Tells the browser this file uses HTML5 (the modern HTML standard)
+-->
+
 <html lang="en">
+<!-- 
+<html> = Root element of the entire HTML document
+lang="en" = Language is English (important for accessibility & SEO)
+-->
+
 <head>
+    <!-- 
+    <head> contains metadata (data ABOUT the page)
+    Nothing here is directly visible on the webpage
+    -->
+
     <meta charset="UTF-8">
+    <!-- 
+    meta = metadata tag
+    charset = character set
+    UTF-8 supports letters, symbols, emojis, and multiple languages
+    -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+    viewport = visible area of the browser
+    width=device-width = match screen width
+    initial-scale=1.0 = no zoom on page load
+    Required for mobile responsiveness
+    -->
+
     <title>Engineer Portfolio | Week 01</title>
+    <!-- 
+    title = text shown in browser tab and search results
+    -->
+
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- 
+    link = connects external files
+    rel="stylesheet" = tells browser this is CSS
+    href = file path to the CSS file
+    -->
 </head>
+
 <body>
+    <!-- 
+    <body> contains everything visible to the user
+    -->
+
     <header>
+        <!-- 
+        header = top section of the page
+        Usually contains logo, navigation, branding
+        -->
+
         <nav>
+            <!-- 
+            nav = navigation section
+            Used for menus and site navigation links
+            -->
+
             <div class="logo">ENGINEER.DEV</div>
+            <!-- 
+            div = generic container
+            class="logo" = CSS hook for styling the logo text
+            -->
+
             <ul>
+                <!-- 
+                ul = unordered list (bullet list)
+                Used here for navigation links
+                -->
+
                 <li><a href="#hero">Home</a></li>
+                <!-- 
+                li = list item
+                a = anchor tag (clickable link)
+                href="#hero" = jumps to section with id="hero"
+                -->
+
                 <li><a href="#projects">Projects</a></li>
+                <!-- 
+                Navigates to projects section
+                -->
+
                 <li><a href="#contact">Contact</a></li>
+                <!-- 
+                Navigates to contact section
+                -->
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- 
+        main = primary content of the page
+        There should only be ONE <main> per page
+        -->
+
         <section id="hero">
+            <!-- 
+            section = logical grouping of content
+            id="hero" = unique identifier for linking & styling
+            -->
+
             <h1>Hello, I'm Vincent Aguirre</h1>
+            <!-- 
+            h1 = main heading
+            Highest priority heading (SEO & structure)
+            -->
+
             <p>Full Stack Engineer | Python Specialist</p>
+            <!-- 
+            p = paragraph text
+            Used for descriptions and readable content
+            -->
+
             <button>View My Code</button>
+            <!-- 
+            button = clickable UI element
+            Can later be wired to JavaScript or a link
+            -->
         </section>
 
         <section id="projects">
+            <!-- 
+            Projects section
+            -->
+
             <h2>Mission Log</h2>
+            <!-- 
+            h2 = secondary heading
+            Used for section titles
+            -->
+
             <div class="project-card">
+                <!-- 
+                project-card = reusable container for a project
+                -->
+
                 <h3>Project 01</h3>
+                <!-- 
+                h3 = subsection heading
+                -->
+
                 <p>Status: Completed</p>
+                <!-- 
+                Project status text
+                -->
             </div>
         </section>
 
         <section id="contact">
+            <!-- 
+            Contact information section
+            -->
+
             <h2>Open Frequency</h2>
+            <!-- 
+            Creative heading for contact section
+            -->
+
             <p>email@example.com</p>
+            <!-- 
+            Contact email
+            -->
         </section>
     </main>
 
     <footer>
+        <!-- 
+        footer = bottom of the page
+        Contains credits, copyright, or notes
+        -->
+
         <p>Built with Raw HTML/CSS. No Magic.</p>
+        <!-- 
+        Footer message / philosophy statement
+        -->
     </footer>
+
 </body>
 </html>
