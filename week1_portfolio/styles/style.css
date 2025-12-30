@@ -9,7 +9,7 @@
 :root {
     --bg-color: #0a0a0a;
     --text-primary: #e0e0e0;
-    --accent-color: #00ff41;
+    --accent-color: #4196f3;
     --font-main: "Courier New", Courier, monospace;
 }
 
@@ -23,4 +23,19 @@ body {
 
     /*Spacing between lines*/
     line-height: 1.6; 
+}
+
+header{
+    
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--accent-color);
+
+}
+
+nav{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
