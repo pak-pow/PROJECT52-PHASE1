@@ -89,3 +89,64 @@ nav a:hover{
     /* Change link color on hover */
     color: var(--accent-color);
 }
+
+#hero{
+
+    /* HEIGHT: 80vh = 80% of the Viewport Height. */
+    /* It takes up most of the screen. */
+    height: 80vh;
+
+    display: flex;
+
+    /* Flexbox properties */
+    flex-direction: column;
+
+    /* Center content vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+
+    /* Center text horizontally */
+    text-align: center;
+
+}
+
+#hero h1 {
+
+    /* Font size and margin */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+#hero p {
+
+    /* Font size and margin */
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+
+}
+
+#hero button {
+
+    /* Button styling */
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    /* Transition for hover effect */
+    transition: background-color 0.3s;
+
+}
+
+#hero button:hover {
+
+    /* Hover effect for the button */
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
