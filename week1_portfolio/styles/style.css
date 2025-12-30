@@ -1,6 +1,23 @@
-/* Resetting the engine defaults */
+/* The astertisk (*) targets every objects in the scene */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* The root is where we define the global variables */
+:root {
+    --bg-color: #0a0a0a;
+    --text-primary: #e0e0e0;
+    --accent-color: #00ff41;
+    --font-main: "Courier New", Courier, monospace;
+}
+
+/* This is the world settings*/
 body {
-    background-color: #1a1a1a; /* Dark Mode (Engine Grey) */
-    color: #00ff00;            /* Terminal Green */
-    font-family: monospace;
+
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
 }
