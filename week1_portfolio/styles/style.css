@@ -16,8 +16,11 @@
 /* This is the world settings*/
 body {
 
+    /*usage of the variables*/
     background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: var(--font-main);
-    line-height: 1.6;
+
+    /*Spacing between lines*/
+    line-height: 1.6; 
 }
