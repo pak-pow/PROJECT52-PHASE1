@@ -25,6 +25,7 @@ body {
     line-height: 1.6; 
 }
 
+/* Header */
 header{
     
     /* Padding is "internal spacing" 
@@ -36,6 +37,7 @@ header{
 
 }
 
+/* Navigation Bar */
 nav{
 
     /* DISPLAY: FLEX is the magic engine. */
@@ -51,6 +53,7 @@ nav{
 
 }
 
+/* Navigation List */
 nav ul {
 
     /* Remove default list styling */
@@ -66,13 +69,23 @@ nav ul {
 
 nav a {
 
+    /* Link color */
     color: var(--text-primary);
+
+    /* Remove default link underline */
     text-decoration: none;
+
+    /* Font weight */
     font-weight: bold;
+
+    /* Add transition for smooth color change */
     transition: color 0.3s
 
 }
 
+/* Hover effect for navigation links */
 nav a:hover{
+
+    /* Change link color on hover */
     color: var(--accent-color);
 }
