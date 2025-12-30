@@ -191,7 +191,7 @@ nav a:hover{
 
 .project-card:hover{
 
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     border-color: var(--accent-color);
 
 }
