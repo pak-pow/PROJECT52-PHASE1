@@ -27,15 +27,52 @@ body {
 
 header{
     
+    /* Padding is "internal spacing" 
+    Or more so The distance from wall to content */
     padding: 1rem 2rem;
-    border-bottom: 1px solid var(--accent-color);
+
+    /* Blue Light at bottom */
+    border-bottom: 2px solid var(--accent-color);
 
 }
 
 nav{
 
+    /* DISPLAY: FLEX is the magic engine. */
+    /* It turns this container into a flexible layout manager. */
     display: flex;
+
+    /* Push items to opposite ends (Left and Right). */
+    /* Like Vector Math: Position A = 0, Position B = ScreenWidth */
     justify-content: space-between;
+
+    /* Vertically center the items inside the bar. */
     align-items: center;
 
+}
+
+nav ul {
+
+    /* Remove default list styling */
+    list-style: none;
+
+    /* Making the list items horizontal */
+    display: flex;
+
+    /* Gap between list items */
+    gap: 20px;
+
+}
+
+nav a {
+
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s
+
+}
+
+nav a:hover{
+    color: var(--accent-color);
 }
