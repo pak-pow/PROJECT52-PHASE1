@@ -302,5 +302,43 @@ footer {
     animation: slideUp 1s ease-out forwards;
     animation-delay: 0.2s;
     opacity: 0;
-    
+
+}
+
+#hero button {
+
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+
+}
+
+@media (max-width: 760px) {
+
+    nav {
+
+        flex-direction: column;
+        gap: 1rem;
+
+    }
+
+    nav ul {
+
+        gap: 15px;
+        font-size: 0.9rem;
+
+    }
+
+    #hero h1 {
+
+        font-size: 1.5rem;
+
+    }
+
+    #projects {
+
+        padding: 2rem 1rem;
+
+    }
+
 }
