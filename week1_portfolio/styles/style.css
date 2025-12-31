@@ -1,3 +1,9 @@
+html {
+
+    scroll-behavior: smooth;
+
+}
+
 /* The astertisk (*) targets every objects in the scene */
 * {
     margin: 0;
@@ -267,4 +273,34 @@ footer {
 
 .social-links a:hover {
     color: var(--accent-color);
+}
+
+@keyframes slideUp {
+    
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+#hero h1 {
+
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
+}
+
+#hero p {
+
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+    
 }
