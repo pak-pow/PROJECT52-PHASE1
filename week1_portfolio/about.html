@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- 
+DOCTYPE = Document Type Declaration
+Tells the browser this file uses HTML5 (the modern HTML standard)
+-->
+
+<html lang="en">
+<!-- 
+<html> = Root element of the entire HTML document
+lang="en" = Language is English (important for accessibility & SEO)
+-->
+
+<head>
+    <!-- 
+    <head> contains metadata (data ABOUT the page)
+    Nothing here is directly visible on the webpage
+    -->
+
+    <meta charset="UTF-8">
+    <!-- 
+    meta = metadata tag
+    charset = character set
+    UTF-8 supports letters, symbols, emojis, and multiple languages
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+    viewport = visible area of the browser
+    width=device-width = match screen width
+    initial-scale=1.0 = no zoom on page load
+    Required for mobile responsiveness
+    -->
+
+    <title>Engineer Portfolio | Week 01</title>
+    <!-- 
+    title = text shown in browser tab and search results
+    -->
+
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
+    <meta property="og:title" content="Vincent's Portfolio">
+    <meta property="og:description" content="A raw HTML/CSS engineering portfolio built from scratch. Project 52.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pak-pow/PROJECT52/main/week01_portfolio/assets/images/full_ui.png">
+    <meta property="og:url" content="https://pak-pow.github.io/PROJECT52/">
+    <meta name="theme-color" content="#00ff41">
+
+    <!-- 
+    link = connects external files
+    rel="stylesheet" = tells browser this is CSS
+    href = file path to the CSS file
+    -->
+</head>
+
+<body>
+    <!-- 
+    <body> contains everything visible to the user
+    -->
+
+    <header>
+        <!-- 
+        header = top section of the page
+        Usually contains logo, navigation, branding
+        -->
+
+        <nav>
+            <!-- 
+            nav = navigation section
+            Used for menus and site navigation links
+            -->
+
+            <div class="logo">ENGINEER.DEV</div>
+            <!-- 
+            div = generic container
+            class="logo" = CSS hook for styling the logo text
+            -->
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+                
+                <li><a href="about.html" style="color: var(--accent-color);">About</a></li> 
+                
+                <li><a  href="index.html#projects">Projects</a></li> 
+                
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <section id="about-page" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
+        <h1>About the Engineer</h1>
+        <p style="color: var(--accent-color); margin-bottom: 2rem;">Full Stack Developer | Problem Solver</p>
+        
+        <div class="bio-content">
+            <p>
+                Hi, I'm Vincent. I am a Computer Science student transitioning from Game Development to Full Stack Engineering.
+            </p>
+            <br>
+            <p>
+                I built a 3D Engine in Python from scratch, and now I am conquering the Web.
+                My goal is to ship 52 projects in 2026.
+            </p>
+            <br>
+            <h3>Technical Arsenal</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>🐍 Python (Pygame, OpenGL, Pandas)</li>
+                <li>🌐 Web (HTML5, CSS3, JS)</li>
+                <li>🛠 Tools (Git, VS Code, Obsidian)</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <!-- 
+        footer = bottom of the page
+        Contains credits, copyright, or notes
+        -->
+        <p>&copy; 2026 Vincent Aguirre. All rights reserved.</p>
+        <div class = "social-links">
+            
+            <a href="https://github.com/pak-pow" 
+            target="_blank">
+                GitHub
+            </a>
+            
+            <a href="https://www.linkedin.com/in/vincent-aguirre-367173367" target="_blank">
+                LinkedIn
+            </a>
+        </div>
+        <!-- 
+        Footer message / philosophy statement
+        -->
+    </footer>
+
+</body>
+</html>
