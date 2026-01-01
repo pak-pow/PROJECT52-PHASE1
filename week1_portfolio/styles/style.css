@@ -109,10 +109,14 @@ nav a:hover{
 
     /* Center content vertically and horizontally */
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     /* Center text horizontally */
-    text-align: center;
+    text-align: left;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
 
 }
 
@@ -120,6 +124,7 @@ nav a:hover{
 
     /* Font size and margin */
     font-size: 2rem;
+    line-height: 1.1;
     margin-bottom: 1rem;
 
 }
@@ -128,7 +133,8 @@ nav a:hover{
 
     /* Font size and margin */
     font-size: 1rem;
-    color: var(--accent-color);
+    color: #888;
+    max-width: 600px;
     margin-bottom: 2rem;
 
 }
