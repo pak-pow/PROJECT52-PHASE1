@@ -183,6 +183,29 @@ nav a:hover{
 
 }
 
+.content-wrapper {
+    
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.text-link{
+
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
+
+}
+
+.text-link:hover{
+
+    text-decoration: underline;
+
+}
+
 #projects {
 
     /* Padding around the projects section */
