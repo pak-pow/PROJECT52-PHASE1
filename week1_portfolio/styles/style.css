@@ -175,6 +175,14 @@ nav a:hover{
     color: var(--bg-color);
 }
 
+#home-about {
+
+    padding: 4rem 2rem;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+
+}
+
 #projects {
 
     /* Padding around the projects section */
