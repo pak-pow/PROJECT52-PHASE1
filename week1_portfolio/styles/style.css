@@ -344,6 +344,8 @@ footer {
 
 }
 
+/*==========Animation============*/
+
 #hero h1 {
 
     animation-name: slideUp;
@@ -368,6 +370,8 @@ footer {
     opacity: 0;
 
 }
+
+/*==========Responsive Design============*/
 
 @media (max-width: 760px) {
 
@@ -398,6 +402,8 @@ footer {
     }
 
 }
+
+/*============= Scrollbar Styling ==========*/
 
 ::-webkit-scrollbar {
 
