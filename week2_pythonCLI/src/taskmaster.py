@@ -14,6 +14,12 @@ def main():
             
         else: 
             print("ERROR: Title is required for 'add' action")
+            
+    elif arg.action == "list":
+        print("SYSTEM: Listing all tasks")
+        
+    elif arg.action == "complete":
+        print("SYSTEM: Completing a task")
 
 if __name__ == "__main__":
     main()
