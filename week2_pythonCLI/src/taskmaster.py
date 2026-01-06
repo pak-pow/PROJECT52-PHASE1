@@ -8,16 +8,50 @@ DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "tasks.json")
 
 class TaskManager:
     def __init__(self):
-        pass
+        self.task = self.load_data()
     
     def load_data(self):
-        pass
+        
+        if not os.path.exists(DATA_FILE):
+            return []
+        
+        try: 
+            with open (DATA_FILE, "r") as file:
+                data = json.load(file)
+                return data
+            
+        except (json.JSONDecodeError, IOError):
+            return []
     
     def save_data(self):
-        pass
+        with open(DATA_FILE, "w") as file:
+            json.dump(self.task, file, indent=4)
+    
+    def add_task(self, title):
+        task = {
+            "id": len(self.task) + 1,
+            "title": title,
+            "status": "pending",
+            "completed": False,
+            "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        self.task.append(task)
+        self.save_data()
+        print(f"DATA SAVED: Task '{title}' with id '{task['id']}' added successfully.")
+        
     
     def list_tasks(self):
-        pass
+        
+        if not self.task:
+            print("SYSTEM: No tasks found.")
+            return
+        
+        print(f"{'ID':<5} {'Title':<30} {'Status':<10} {'Created At':<20}")
+        print("-" * 70)
+        
+        for task in self.task:
+            status = "✓" if task["completed"] else "○"
+            print(f"{task['id']:<5} {task['title']:<30} {status:<10} {task['created_at']:<20}")
     
 def main():
     
@@ -27,15 +61,19 @@ def main():
     
     arg = parser.parse_args()
     
+    manager = TaskManager()
+    
     if arg.action == "add":
         if arg.title:
             print(f"SYSTEM: Adding task {arg.title}")
+            manager.add_task(arg.title)
             
         else: 
             print("ERROR: Title is required for 'add' action")
             
     elif arg.action == "list":
         print("SYSTEM: Listing all tasks")
+        manager.list_tasks()
         
     elif arg.action == "complete":
         print("SYSTEM: Completing a task")
