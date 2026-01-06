@@ -6,6 +6,19 @@ from datetime import datetime
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "tasks.json")
 
+class TaskManager:
+    def __init__(self):
+        pass
+    
+    def load_data(self):
+        pass
+    
+    def save_data(self):
+        pass
+    
+    def list_tasks(self):
+        pass
+    
 def main():
     
     parser = argparse.ArgumentParser(description="Week2 : Task Master CLI")
