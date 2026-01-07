@@ -52,15 +52,36 @@ class TaskManager:
         for task in self.task:
             status = "✓" if task["completed"] else "○"
             print(f"{task['id']:<5} {task['title']:<30} {status:<10} {task['created_at']:<20}")
+            
+    def complete_task(self, task_id):
+        
+        found = False
+        
+        for task in self.task:
+            if task["id"] == task_id:
+                task["completed"] = True
+                task["status"] = "completed"
+                found = True
+                
+                print(f"DATA SAVED: Task with id '{task_id}' marked as completed.")
+        
+                break
+        
+        if found:
+            self.save_data()
+        
+        else:
+            print(f"ERROR: Task with id '{task_id}' not found.")
     
 def main():
     
     parser = argparse.ArgumentParser(description="Week2 : Task Master CLI")
-    parser.add_argument("action", choices=["add", "list", "complete"], help="Action to perform on the task")
+    parser.add_argument("action", choices=["add", "list", "complete", "delete"], help="Action to perform on the task")
+    
     parser.add_argument("--title", help="the title of the task for 'add' action")
+    parser.add_argument("--id", type=int, help="Task ID for 'complete' or 'delete' action")
     
     arg = parser.parse_args()
-    
     manager = TaskManager()
     
     if arg.action == "add":
