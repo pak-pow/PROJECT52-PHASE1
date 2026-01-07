@@ -97,7 +97,16 @@ def main():
         manager.list_tasks()
         
     elif arg.action == "complete":
-        print("SYSTEM: Completing a task")
+        
+        if arg.id:
+            print(f"SYSTEM: Completing task with id {arg.id}")
+            manager.complete_task(arg.id)
+        
+        else:
+            print("ERROR: Task ID is required for 'complete' action")  
+            
+    elif arg.action == "delete":
+        print("SYSTEM: Delete action is not implemented yet.")
 
 if __name__ == "__main__":
     main()
