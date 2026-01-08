@@ -28,6 +28,9 @@ class TaskManager:
             json.dump(self.task, file, indent=4)
     
     def add_task(self, title):
+        
+        new_id = self.task[-1]["id"] + 1 if self.task else 1
+        
         task = {
             "id": len(self.task) + 1,
             "title": title,
