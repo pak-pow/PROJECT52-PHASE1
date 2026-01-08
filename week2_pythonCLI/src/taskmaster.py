@@ -75,7 +75,23 @@ class TaskManager:
         
         else:
             print(f"ERROR: Task with id '{task_id}' not found.")
-    
+            
+    def delete_task(self, task_id):
+        
+        task_to_remove = None
+        
+        for task in self.task:
+            if task["id"] == task_id:
+                task_to_remove = task
+                break
+
+        if task_to_remove:
+            self.task.remove(task_to_remove)
+            self.save_data()
+            print(f"DATA SAVED: ID: '{task_id}' TITLE: '{task_to_remove['title']}' deleted successfully.")
+        else:
+            print(f"ERROR: Task with id '{task_id}' not found.")
+
 def main():
     
     parser = argparse.ArgumentParser(description="Week2 : Task Master CLI")
@@ -109,7 +125,12 @@ def main():
             print("ERROR: Task ID is required for 'complete' action")  
             
     elif arg.action == "delete":
-        print("SYSTEM: Delete action is not implemented yet.")
+        
+        if arg.id:
+            print(f"SYSTEM: Deleting task with id {arg.id}")
+            manager.delete_task(arg.id)
+        else:
+            print("ERROR: Task ID is required for 'delete' action")
 
 if __name__ == "__main__":
     main()
