@@ -27,9 +27,9 @@ Phase 1 focuses on building a solid foundation in individual technologies. Each 
 
 | Week | Project | Category | Skills | Time | Status |
 |:----:|:--------|:---------|:-------|:----:|:------:|
-| 1 | Personal Portfolio Website v1 | Frontend | HTML5, CSS3, Responsive Design | 3h | In-Progress |
-| 2 | Python CLI Task Manager | Python | File I/O, CLI Arguments, Data Structures | 2h | Not Started |
-| 3 | CSS Animation Showcase | Frontend | Keyframes, Transitions, Transforms | 3h | Not Started |
+| 1 | Personal Portfolio Website v1 | Frontend | HTML5, CSS3, Responsive Design | 3h | Done |
+| 2 | Python CLI Task Manager | Python | File I/O, CLI Arguments, Data Structures | 2h | Done |
+| 3 | CSS Animation Showcase | Frontend | Keyframes, Transitions, Transforms | 3h | In-Progress |
 | 4 | Mathematical Visualization Tool | Python + Math | Matplotlib, NumPy, Functions | 4h | Not Started |
 | 5 | JavaScript Interactive Quiz | Frontend | DOM Manipulation, Event Listeners | 3h | Not Started |
 | 6 | Web Scraper for News Headlines | Python | BeautifulSoup, Requests, Data Parsing | 4h | Not Started |
