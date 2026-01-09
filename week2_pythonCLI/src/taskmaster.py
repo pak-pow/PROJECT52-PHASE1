@@ -91,11 +91,30 @@ class TaskManager:
             print(f"DATA SAVED: ID: '{task_id}' TITLE: '{task_to_remove['title']}' deleted successfully.")
         else:
             print(f"ERROR: Task with id '{task_id}' not found.")
+            
+            
+    def edit_task(self, task_id, new_title):
+        found = False
+        
+        for task in self.task:
+            if task["id"] == task_id:
+                task["title"] = new_title
+                found = True
+                
+                print(f"DATA SAVED: Task with id '{task_id}' updated successfully.")
+        
+                break
+        
+        if found:
+            self.save_data()
+        
+        else:
+            print(f"ERROR: Task with id '{task_id}' not found.")
 
 def main():
     
     parser = argparse.ArgumentParser(description="Week2 : Task Master CLI")
-    parser.add_argument("action", choices=["add", "list", "complete", "delete"], help="Action to perform on the task")
+    parser.add_argument("action", choices=["add", "list", "complete", "delete", "edit"], help="Action to perform on the task")
     
     parser.add_argument("--title", help="the title of the task for 'add' action")
     parser.add_argument("--id", type=int, help="Task ID for 'complete' or 'delete' action")
@@ -131,6 +150,15 @@ def main():
             manager.delete_task(arg.id)
         else:
             print("ERROR: Task ID is required for 'delete' action")
+            
+    elif arg.action == "edit":
+        
+        if arg.id and arg.title:
+            print(f"SYSTEM: Editing task with id {arg.id}")
+            manager.edit_task(arg.id, arg.title)
+            
+        else:
+            print("ERROR: Both Task ID and new title are required for 'edit' action")
 
 if __name__ == "__main__":
     main()
