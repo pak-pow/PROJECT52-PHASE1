@@ -27,3 +27,65 @@ h1 {
     color: #ff6f61;
 }
 
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.card {
+    background: #2a2a2a;
+    border : 1px solid #444;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.display-case {
+    height: 150px;
+    background: #222;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 1px dashed #444;
+}
+
+code {
+    background: #000;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    word-break: break-all;
+}
+
+.exhibit-1{
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #00ff88;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.exhibit-1:hover {
+    background-color: #ff79c6; /* Change Color */
+    transform: scale(1.12) rotate(-3deg); /* Grow and Tilt */
+    box-shadow: 0 0 15px #ff79c6; /* Glow */
+}
