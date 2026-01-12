@@ -123,3 +123,13 @@ code {
         box-shadow: 0 0 20px #ff6f61;
     }
 }
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #333;
+    width: 100%;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: #666;
+}
