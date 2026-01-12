@@ -124,6 +124,25 @@ code {
     }
 }
 
+.scene {
+    perspective: 1000px;
+    background: transparent;
+    border: none
+}
+
+.flip-card{
+    width: 100px;
+    height: 140px;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card:hover .flip-card {
+    transform: rotateY(180deg);
+}
+
 footer {
     text-align: center;
     padding: 1rem;
