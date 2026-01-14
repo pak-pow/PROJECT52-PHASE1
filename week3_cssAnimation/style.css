@@ -303,6 +303,55 @@ code {
     50% { border-color: orange; }
 }
 
+.skeleton-card{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skeleton-line {
+    height: 12px;
+    border-radius: 4px;
+    background: #333; 
+    
+    background-image: linear-gradient(
+        90deg, 
+        #333 0%, 
+        #444 50%, 
+        #333 100%
+        );
+    
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    
+}
+
+.skeleton-line.title {
+    height: 20px;
+    width: 60%;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-line.text {
+    width: 100%;
+}
+
+.skeleton-line.short {
+    width: 80%;
+}
+
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0; 
+    }
+}
+
 footer {
     text-align: center;
     padding: 1rem;
