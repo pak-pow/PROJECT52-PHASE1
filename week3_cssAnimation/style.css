@@ -257,6 +257,42 @@ code {
         blink-caret .75s step-end infinite;
 }
 
+.black-box {
+    background-color: #000 !important;
+}
+
+.neon {
+    font-family: sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa;
+
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #0fa,
+            0 0 82px #0fa;
+        opacity: 1;
+    }
+    20%, 24%, 55% {       
+        text-shadow: none;
+        opacity: 0.5;
+    }
+}
+
 @keyframes typing {
     from { width: 0; }
     to { width: 85%; }
