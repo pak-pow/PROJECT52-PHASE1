@@ -10,30 +10,61 @@
         
             background: #0a0a0a; 
             color: #4196f3; 
-            font-family: monospace; 
+            font-family: 'Courier New', Courier, monospace; 
             text-align: center; 
             padding-top: 100px; 
         }
         
+        h1 { 
+            letter-spacing: 5px;
+            margin-bottom: 5px; 
+        }
+
+        p {
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
         a { 
         
             color: white; 
             text-decoration: none; 
             border: 1px solid white; 
-            padding: 10px 20px; 
+            padding: 15px 30px;
+            width: 300px; 
             display: inline-block; 
             margin: 10px; 
             border-radius: 8px;
             transition: 0.2s ease;
+            position: relative;
         
         }
         
         a:hover { 
             
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             background: white; 
             color: black; 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         
+        }
+
+        .cli-link {
+            border-color: #00ff88;
+            color : #00ff88;
+        }
+
+        .cli-link:hover {
+            background: #00ff88;
+            color: #0a0a0a;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
         }
 
     
@@ -41,13 +72,28 @@
 </head>
 
 <body>
+
     <h1>PROJECT 52</h1>
-    <p>Select a Website to Launch:</p>
-    <br>
+    <p>PHASE 1: THE FOUNDATION</p>
     
-    <a href="./week1_portfolio/index.html">WEEK 01: Portfolio Protocol</a>
-    
-    <br>
-    <p>More Websites Coming Soon...</p>
+    <div class="project-list">
+        
+        <a href="./week1_portfolio/index.html">
+            WEEK 01: Portfolio Protocol
+        </a>
+        
+        <a href="https://github.com/pak-pow/PROJECT52-PHASE1/releases/tag/v1.0-week2" class="cli-link" target="_blank">
+            WEEK 02: Task Master (Download)
+        </a>
+
+        <a href="./week03_cssAnimation/index.html">
+            WEEK 03: Museum of Motion
+        </a>
+
+    </div>
+
+    <br><br>
+    <p style="font-size: 0.8rem; opacity: 0.5;">More Modules Coming Soon...</p>
 
 </body>
+</html>
