@@ -35,25 +35,44 @@
             
         <p>A Pure Css Animation Showcase</p>
         <!-- <p> is a paragraph element for text content -->
-            
+
     </header>
 
     <main class = "gallery">
+        <!-- <main> is the main content area of the page -->
+        <!-- class="gallery" assigns a CSS class for styling this section -->
 
+        <!-- CARD 1: The Morph -->
         <div class = "card">
+
+            <!-- <div> is a generic container element (division) -->
+            <!-- Used to group related content together -->
+            <!-- class="card" applies CSS styling to create a card layout -->
             
             <h2>The Morph</h2>
+                <!-- <h2> is a second-level heading (smaller than h1) -->
+
             <div class = "display-case">
+                <!-- Another container div for the animation display area -->
+
                 <button class = "exhibit-1"> Hover me </button>
+                <!-- <button> creates a clickable button element -->
+                <!-- class="exhibit-1" applies specific CSS animation on hover -->
+
             </div>
             <p>Technique: <code>Transition</code></p>
+             <!-- <code> formats text as code (monospace font) -->
 
         </div>
 
+        <!-- CARD 2: The Loader -->
         <div class = "card">
             
             <h2>The Loader</h2>
             <div class = "display-case">
+
+                <!-- Empty div that will be styled/animated with CSS -->
+                <!-- Common pattern: use empty divs as animation targets -->
                 <div class = "exhibit-2"></div>
             </div>
             <p>Technique: <code>@keyframes</code></p>
@@ -70,17 +89,24 @@
 
         </div>
 
+        <!-- CARD 3: The Pulse -->
         <div class = "card">
             <h2>The 3D Flip</h2>
             
             <div class = "display-case scene">
+                <!-- Multiple classes: "display-case" AND "scene" -->
+                <!-- "scene" likely adds 3D perspective for the flip effect -->
             
                 <div class = "flip-card">
+                    <!-- Container for the flipping card animation -->
+
                     <div class = "card-face front">
+                        <!-- The front side of the flipping card -->
                         Front
                     </div>
             
                     <div class = "card-face back">
+                        <!-- The back side of the flipping card -->
                         Back
                     </div>
                 </div>
@@ -90,45 +116,70 @@
 
         </div>
 
+        <!-- CARD 5: Gravity -->
         <div class = "card">
             <h2>Gravity</h2>
             <div class = "display-case">
                 <div class = "exhibit-5"></div>
+                <!-- Empty div for gravity/bouncing animation -->
+
             </div>
             <p>Technique: <code>cubic-bezier</code></p>
         </div>
 
+        <!-- CARD 6: The Glitch -->
         <div class = "card">
             <h2>The Glitch</h2>
             <div class = "display-case">
                 <div class = "glitch" data-text="ERROR 404"> ERROR 404</div>
+                <!-- data-text is a custom HTML attribute -->
+                <!-- Stores data that CSS can access for pseudo-elements -->
+                <!-- The text "ERROR 404" appears twice: once visible, once in data -->
+
             </div>
             <p>Technique: <code>::before</code> + <code>clip-path</code></p>
         </div>
 
+        <!-- CARD 7: The Typewriter -->
         <div class = "card">
             <h2>The Typewriter</h2>
             <div class = "display-case">
                 <div class = "typewriter">console.log("Hello World");</div>
+                <!-- Text that will animate like it's being typed -->
+
             </div>
             <p>Technique: <code>steps()</code></p>
         </div>
 
+        <!-- CARD 8: The Neon Sign -->
         <div class = "card"> 
             <h2>The Neon Sign</h2>
             <div class = "display-case"> 
                 <div class = "neon">OPEN</div>
+                <!-- Text that will glow like a neon sign -->
+
             </div>
             <p>Technique: <code>text-shadow</code></p>
         </div>
 
+        <!-- CARD 9: The Shimmer -->
         <div class = "card">
             <h2>The Shimmer</h2>
             <div class = "display-case">
                 <div class="skeleton-card">
+                    <!-- Container for skeleton loading animation -->
+                    <!-- "Skeleton" is a loading placeholder pattern -->
+
                     <div class="skeleton-line title"></div>
+                    <!-- Empty div representing a title placeholder -->
+                    
                     <div class="skeleton-line text"></div>
+                    <!-- Empty div representing a text line placeholder -->
+
                     <div class="skeleton-line text short"></div>
+                    <!-- Multiple classes: "skeleton-line", "text", AND "short" -->
+                    <!-- "short" likely makes this line shorter than others -->
+                     
                 </div>
             </div>
             <p>Technique: <code>background-position</code></p>
