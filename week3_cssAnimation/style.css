@@ -1,363 +1,540 @@
+/* UNIVERSAL SELECTOR - Applies to ALL elements on the page */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+  margin: 0; /* Removes default spacing outside elements */
+  padding: 0; /* Removes default spacing inside elements */
+  box-sizing: border-box; /* Makes width/height include padding and border (easier sizing) */
+  font-family: "Courier New", Courier, monospace; /* Sets monospace font for code-like appearance */
 }
 
+/* BODY - The main container for all visible content */
 body {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  background-color: #1a1a1a; /* Dark gray background */
+  color: #f0f0f0; /* Light gray text color */
+  display: flex; /* Uses flexbox layout (flexible box model) */
+  flex-direction: column; /* Stacks children vertically (top to bottom) */
+  align-items: center; /* Centers children horizontally */
+  min-height: 100vh; /* Minimum height = 100% of viewport height (full screen) */
 }
 
+/* HEADER - Top section of the page */
 header {
-    text-align: center;
-    padding: 2rem;
-    border-bottom: 1px solid #333;
-    width: 100%;
+  text-align: center; /* Centers text horizontally */
+  padding: 2rem; /* 2rem spacing inside all sides (1rem = 16px typically) */
+  border-bottom: 1px solid #333; /* Thin dark line at bottom */
+  width: 100%; /* Takes full width of parent */
 }
 
+/* H1 - Main title */
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: #ff6f61;
+  font-size: 2.5rem; /* Large text size */
+  margin-bottom: 0.5rem; /* Space below the heading */
+  color: #ff6f61; /* Coral/salmon color */
 }
 
+/* GALLERY - Grid container for all the cards */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    width: 100%;
-    max-width: 1600px;
+  display: grid; /* Uses CSS Grid layout system */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(400px, 1fr)
+  ); /* Creates responsive columns:
+                                                                    - repeat(): repeats column pattern
+                                                                    - auto-fit: fits as many columns as possible
+                                                                    - minmax(400px, 1fr): each column min 400px, max 1 fraction of space */
+  gap: 2rem; /* Space between grid items */
+  padding: 2rem; /* Space inside the gallery container */
+  width: 100%; /* Full width */
+  max-width: 1600px; /* But never wider than 1600px (keeps layout readable on huge screens) */
 }
 
+/* CARD - Individual exhibit container */
 .card {
-    background: #2a2a2a;
-    border : 1px solid #444;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: #2a2a2a; /* Slightly lighter dark gray than body */
+  border: 1px solid #444; /* Thin border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1.5rem; /* Space inside card */
+  text-align: center; /* Centers text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow effect: 
+                                                  0 = no horizontal offset
+                                                  4px = 4px down
+                                                  6px = blur radius
+                                                  rgba = semi-transparent black */
 }
 
+/* CARD H2 - Subtitle within each card */
 .card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #ccc;
+  font-size: 1.2rem; /* Slightly larger than normal text */
+  margin-bottom: 1rem; /* Space below heading */
+  color: #ccc; /* Light gray */
 }
 
+/* DISPLAY-CASE - The "stage" where animations perform */
 .display-case {
-    height: 150px;
-    background: #222;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    border: 1px dashed #444;
+  height: 150px; /* Fixed height */
+  background: #222; /* Very dark gray (almost black) */
+  border-radius: 4px; /* Slightly rounded corners */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  margin-bottom: 1rem; /* Space below */
+  border: 1px dashed #444; /* Dashed border (museum "do not touch" vibe) */
 }
 
+/* CODE - Inline code snippets */
 code {
-    background: #000;
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
-    font-size: 0.8rem;
-    color: #ffcc00;
-    word-break: break-all;
+  background: #000; /* Black background */
+  padding: 0.2rem 0.4rem; /* Small padding (vertical horizontal) */
+  border-radius: 3px; /* Slightly rounded */
+  font-size: 0.8rem; /* Smaller text */
+  color: #ffcc00; /* Yellow color */
+  word-break: break-all; /* Breaks long words to prevent overflow */
 }
 
-.exhibit-1{
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: #00ff88;
-    color: #1a1a1a;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+/* ========================================
+   EXHIBIT 1: THE MORPH (Button Transition)
+   ======================================== */
 
-    transition: all 0.3s ease-in-out;
+.exhibit-1 {
+  padding: 1rem 2rem; /* Space inside button (vertical horizontal) */
+  font-size: 1.2rem; /* Larger text */
+  background-color: #00ff88; /* Bright mint green */
+  color: #1a1a1a; /* Dark text */
+  border: none; /* Removes default button border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Changes cursor to hand on hover */
+  font-weight: bold; /* Bold text */
+
+  transition: all 0.3s ease-in-out; /* SMOOTH TRANSITION for all properties:
+                                         - 0.3s = duration (300 milliseconds)
+                                         - ease-in-out = starts slow, speeds up, ends slow */
 }
 
+/* HOVER STATE - What happens when you hover over the button */
 .exhibit-1:hover {
-    background-color: #ff79c6; 
-    transform: scale(1.12) rotate(-3deg); 
-    box-shadow: 0 0 15px #ff79c6; 
+  background-color: #ff79c6; /* Changes to pink */
+  transform: scale(1.12) rotate(-3deg); /* TRANSFORM combines two effects:
+                                             - scale(1.12) = grows to 112% of original size
+                                             - rotate(-3deg) = rotates 3 degrees counter-clockwise */
+  box-shadow: 0 0 15px #ff79c6; /* Adds pink glow effect */
 }
 
-.exhibit-2{
-    width: 50px;
-    height: 50px;
-    border: 5px solid #333;
-    border-top: 5px solid #00ff88;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;   
+/* ========================================
+   EXHIBIT 2: THE LOADER (Spinning Circle)
+   ======================================== */
+
+.exhibit-2 {
+  width: 50px; /* Circle width */
+  height: 50px; /* Circle height */
+  border: 5px solid #333; /* Gray border all around */
+  border-top: 5px solid #00ff88; /* OVERRIDES top border to be green (creates loading effect) */
+  border-radius: 50%; /* Makes it a perfect circle (50% of width/height) */
+  animation: spin 1s linear infinite; /* ANIMATION:
+                                           - spin = animation name (defined below)
+                                           - 1s = duration (1 second)
+                                           - linear = constant speed (no easing)
+                                           - infinite = never stops */
 }
 
+/* KEYFRAMES - Defines the "spin" animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  } /* Start: no rotation */
+  100% {
+    transform: rotate(360deg);
+  } /* End: full rotation (360 degrees = full circle) */
+}
+/* Browser reads this as: "gradually rotate from 0 to 360 degrees over the duration" */
+
+/* ========================================
+   EXHIBIT 3: THE PULSE (Heartbeat Effect)
+   ======================================== */
+
+.exhibit-3 {
+  width: 20%; /* 20% of parent container width */
+  height: 50%; /* 50% of parent container height */
+  background-color: #ff6f61; /* Coral/salmon color */
+  border-radius: 50%; /* Makes it circular */
+  animation: heartbeat 1.5s ease-in-out infinite alternate; /* ANIMATION:
+                                                                 - heartbeat = animation name
+                                                                 - 1.5s = duration
+                                                                 - ease-in-out = smooth acceleration/deceleration
+                                                                 - infinite = loops forever
+                                                                 - alternate = plays forward, then reverse, then repeat */
 }
 
-.exhibit-3{
-    width: 20%;
-    height: 50%;
-    background-color: #ff6f61;
-    border-radius: 50%;
-    animation: heartbeat 1.5s ease-in-out infinite alternate;
-}
-
+/* KEYFRAMES - Defines the "heartbeat" animation */
 @keyframes heartbeat {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1.3);
-        opacity: 1;
-        box-shadow: 0 0 20px #ff6f61;
-    }
+  0% {
+    transform: scale(1); /* Start: normal size */
+    opacity: 0.7; /* Start: 70% visible (slightly transparent) */
+  }
+  100% {
+    transform: scale(1.3); /* End: 130% of original size (grows) */
+    opacity: 1; /* End: 100% visible (fully opaque) */
+    box-shadow: 0 0 20px #ff6f61; /* End: adds glowing shadow */
+  }
 }
+/* Because of "alternate", it goes 0% → 100% → 0% → 100% → ... creating pulse effect */
 
+/* ========================================
+   EXHIBIT 4: THE 3D FLIP (Card Flip)
+   ======================================== */
+
+/* SCENE - Creates 3D space for the flip effect */
 .scene {
-    perspective: 1000px;
-    background: transparent;
-    border: none
+  perspective: 1000px; /* PERSPECTIVE creates 3D depth:
+                               - Higher number = less dramatic 3D effect
+                               - 1000px is a moderate 3D effect
+                               - This is like "camera distance" from the 3D object */
+  background: transparent; /* No background */
+  border: none; /* No border (overrides .display-case border) */
 }
 
-.flip-card{
-    width: 100px;
-    height: 140px;
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    cursor: pointer;
+/* FLIP-CARD - The container that actually flips */
+.flip-card {
+  width: 100px; /* Card width */
+  height: 140px; /* Card height */
+  position: relative; /* Allows absolute positioning of children */
+  transition: transform 0.8s; /* Smooth transition for the flip */
+  transform-style: preserve-3d; /* CRITICAL: preserves 3D positioning of child elements
+                                     Without this, the 3D flip wouldn't work! */
+  cursor: pointer; /* Hand cursor on hover */
 }
 
+/* HOVER TRIGGER - When you hover over the CARD, flip the flip-card inside it */
 .card:hover .flip-card {
-    transform: rotateY(180deg);
+  transform: rotateY(
+    180deg
+  ); /* Rotates card 180 degrees around Y-axis (vertical flip) */
 }
 
+/* CARD-FACE - Base styles for both front and back of the card */
 .card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1rem;
+  position: absolute; /* Positioned relative to .flip-card parent */
+  width: 100%; /* Full width of parent */
+  height: 100%; /* Full height of parent */
+  border-radius: 8px; /* Rounded corners */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  font-weight: bold; /* Bold text */
+  font-size: 1rem; /* Normal size text */
 
-    backface-visibility: hidden;
+  backface-visibility: hidden; /* CRITICAL: hides the back of the card when it's facing away
+                                    This prevents you from seeing the reverse side bleeding through */
 }
 
+/* FRONT - Front side of the card */
 .front {
-    background-color: #00ff88;
-    color: black;
-    border: none;
+  background-color: #00ff88; /* Mint green */
+  color: black; /* Black text */
+  border: none; /* No border */
 }
 
+/* BACK - Back side of the card */
 .back {
-    background: #ff79c6;
-    color: black;
-    transform: rotateY(180deg); 
+  background: #ff79c6; /* Pink background */
+  color: black; /* Black text */
+  transform: rotateY(
+    180deg
+  ); /* PRE-ROTATED 180 degrees so it faces the opposite direction
+                                   When the parent flips 180deg, this becomes 0deg (faces forward) */
 }
 
-.exhibit-5{
-    width: 40px;
-    height: 40px;
-    background: #ffcc00;
-    animation: bounce 0.8s infinite alternate;
-    border-radius: 50%;
-}
+/* ========================================
+   EXHIBIT 5: GRAVITY (Bouncing Ball)
+   ======================================== */
 
 .exhibit-5 {
-    animation-timing-function: cubic-bezier(0.7, 0.04, 0.9, 1);
+  width: 40px; /* Ball width */
+  height: 40px; /* Ball height */
+  background: #ffcc00; /* Yellow */
+  animation: bounce 0.8s infinite alternate; /* Bounce animation */
+  border-radius: 50%; /* Makes it circular */
 }
 
+/* OVERRIDE - Applies custom timing function to exhibit-5 */
+.exhibit-5 {
+  animation-timing-function: cubic-bezier(0.7, 0.04, 0.9, 1);
+  /* CUBIC-BEZIER defines custom acceleration curve:
+       - 4 numbers control the curve shape
+       - (0.7, 0.04, 0.9, 1) creates a "gravity-like" bounce
+       - This makes it feel like a real ball with physics */
+}
+
+/* KEYFRAMES - Defines the "bounce" animation */
 @keyframes bounce {
-
-    from {
-        transform: translateY(-50px);
-    }
-    to {
-        transform: translateY(50px);
-    }
+  from {
+    transform: translateY(-50px); /* Start: 50px above center */
+  }
+  to {
+    transform: translateY(50px); /* End: 50px below center */
+  }
 }
+/* With "alternate", it bounces up and down repeatedly */
+
+/* ========================================
+   EXHIBIT 6: THE GLITCH (Error Text Effect)
+   ======================================== */
 
 .glitch {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #f0f0f0;
-    position: relative;
-    display: inline-block;
+  font-size: 2rem; /* Large text */
+  font-weight: bold; /* Bold */
+  color: #f0f0f0; /* Light gray text */
+  position: relative; /* Allows absolute positioning of ::before and ::after */
+  display: inline-block; /* Wraps tightly around content */
 }
 
+/* PSEUDO-ELEMENTS - Creates two duplicates of the text for glitch effect */
 .glitch::before,
 .glitch::after {
-    content: attr(data-text);
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #222;
+  content: attr(
+    data-text
+  ); /* ATTR() function grabs the "data-text" attribute from HTML
+                                  This creates a copy of the text */
+  position: absolute; /* Positioned on top of the original text */
+  top: 0; /* Aligned to top */
+  left: 0; /* Aligned to left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #222; /* Dark background (same as display-case) */
 }
 
+/* BEFORE - Red/pink glitch layer */
 .glitch::before {
-    left: 2px;
-    text-shadow: -1px 0 #ff00c1;
-    clip-path: inset(44% 0 61% 0);
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  left: 2px; /* Shifted 2px to the right */
+  text-shadow: -1px 0 #ff00c1; /* Pink shadow to the left */
+  clip-path: inset(
+    44% 0 61% 0
+  ); /* CLIP-PATH cuts the element:
+                                      inset(top right bottom left)
+                                      Shows only middle horizontal slice */
+  animation: glitch-anim-1 2s infinite linear alternate-reverse; /* Glitch animation */
 }
 
+/* AFTER - Cyan glitch layer */
 .glitch::after {
-    left: -2px;
-    text-shadow: 1px 0 #00fff9;
-    clip-path: inset(50% 0 30% 0);
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  left: -2px; /* Shifted 2px to the left */
+  text-shadow: 1px 0 #00fff9; /* Cyan shadow to the right */
+  clip-path: inset(50% 0 30% 0); /* Different clip pattern */
+  animation: glitch-anim-2 3s infinite linear alternate-reverse; /* Different timing */
 }
 
-/* THE CHAOS SCRIPTS (Random Slicing) */
+/* THE CHAOS SCRIPTS - Random slicing animations */
+/* These keyframes rapidly change which parts of the text are visible, creating glitch effect */
+
 @keyframes glitch-anim-1 {
-    0% { clip-path: inset(20% 0 80% 0); }
-    20% { clip-path: inset(60% 0 10% 0); }
-    40% { clip-path: inset(40% 0 50% 0); }
-    60% { clip-path: inset(80% 0 5% 0); }
-    80% { clip-path: inset(10% 0 70% 0); }
-    100% { clip-path: inset(30% 0 20% 0); }
+  /* Each step shows a different horizontal slice of the text */
+  0% {
+    clip-path: inset(20% 0 80% 0);
+  } /* Top 20%-80% = shows only small slice near top */
+  20% {
+    clip-path: inset(60% 0 10% 0);
+  } /* Shows slice near bottom */
+  40% {
+    clip-path: inset(40% 0 50% 0);
+  } /* Shows middle slice */
+  60% {
+    clip-path: inset(80% 0 5% 0);
+  } /* Shows slice at bottom */
+  80% {
+    clip-path: inset(10% 0 70% 0);
+  } /* Shows slice near top */
+  100% {
+    clip-path: inset(30% 0 20% 0);
+  } /* Shows large middle slice */
 }
+/* Random slicing creates chaotic "glitching" effect */
 
 @keyframes glitch-anim-2 {
-    0% { clip-path: inset(10% 0 60% 0); }
-    20% { clip-path: inset(30% 0 10% 0); }
-    40% { clip-path: inset(80% 0 5% 0); }
-    60% { clip-path: inset(10% 0 30% 0); }
-    80% { clip-path: inset(60% 0 20% 0); }
-    100% { clip-path: inset(40% 0 80% 0); }
+  /* Similar but different pattern creates layered chaos */
+  0% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  20% {
+    clip-path: inset(30% 0 10% 0);
+  }
+  40% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  60% {
+    clip-path: inset(10% 0 30% 0);
+  }
+  80% {
+    clip-path: inset(60% 0 20% 0);
+  }
+  100% {
+    clip-path: inset(40% 0 80% 0);
+  }
 }
+
+/* ========================================
+   EXHIBIT 7: THE TYPEWRITER (Typing Effect)
+   ======================================== */
 
 .typewriter {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.1rem;
-    color: #00ff88;
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    letter-spacing: .10em;
+  font-family: "Courier New", Courier, monospace; /* Typewriter-style font */
+  font-size: 1.1rem; /* Slightly larger text */
+  color: #00ff88; /* Green (classic terminal color) */
+  overflow: hidden; /* Hides text that goes beyond width */
+  border-right: 0.15em solid orange; /* Orange cursor/caret */
+  white-space: nowrap; /* CRITICAL: prevents text from wrapping to next line
+                                   Forces all text to stay on one line */
+  letter-spacing: 0.1em; /* Space between letters (typewriter effect) */
 
-    animation:
-        typing 3.5s steps(30, end) infinite,
-        blink-caret .75s step-end infinite;
+  animation: typing 3.5s steps(30, end) infinite,
+    /* Typing animation */ blink-caret 0.75s step-end infinite; /* Blinking cursor animation */
+  /* Two animations running simultaneously! Separated by commas */
 }
 
+/* UNUSED CLASS - Might have been for testing */
 .black-box {
-    background-color: #000 !important;
+  background-color: #000 !important; /* !important overrides all other background-color rules */
 }
+
+/* ========================================
+   EXHIBIT 8: THE NEON SIGN (Glowing Text)
+   ======================================== */
 
 .neon {
-    font-family: sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #fff;
+  font-family: sans-serif; /* Clean sans-serif font */
+  font-size: 3rem; /* Very large text */
+  font-weight: bold; /* Bold */
+  color: #fff; /* White text */
 
-    text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 21px #fff,
-        0 0 42px #0fa,
-        0 0 82px #0fa;
+  text-shadow:                /* Multiple shadows create glow effect */ 0 0 7px
+      #fff,
+    /* Small white glow */ 0 0 10px #fff, /* Medium white glow */ 0 0 21px #fff,
+    /* Large white glow */ 0 0 42px #0fa,
+    /* Larger cyan/green glow */ 0 0 82px #0fa; /* Massive cyan/green glow (outer aura) */
+  /* All these shadows layer on top of each other to create neon tube effect */
 
-    animation: flicker 1.5s infinite alternate;
+  animation: flicker 1.5s infinite alternate; /* Flickering animation */
 }
 
+/* KEYFRAMES - Creates realistic neon sign flicker */
 @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px #0fa,
-            0 0 82px #0fa;
-        opacity: 1;
-    }
-    20%, 24%, 55% {       
-        text-shadow: none;
-        opacity: 0.5;
-    }
+  /* ON states - Full glow with all shadows */
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+      0 0 82px #0fa;
+    opacity: 1; /* Fully visible */
+  }
+  /* OFF states - No glow */
+  20%,
+  24%,
+  55% {
+    text-shadow: none; /* Removes all shadows */
+    opacity: 0.5; /* Semi-transparent */
+  }
 }
+/* The specific percentages create random flicker pattern:
+   On for a bit (0-19%), quick off (20%), back on (21-23%), etc. */
 
+/* TYPING ANIMATION - Reveals text from left to right */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 85%; }
+  from {
+    width: 0;
+  } /* Start: 0 width (nothing visible) */
+  to {
+    width: 85%;
+  } /* End: 85% width (most text visible) */
 }
+/* STEPS() in the animation makes this move in discrete jumps (like typing one character at a time) */
 
+/* CARET BLINKING - Makes the cursor blink */
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: orange; }
+  from,
+  to {
+    border-color: transparent;
+  } /* Invisible at start and end */
+  50% {
+    border-color: orange;
+  } /* Visible in middle (50%) */
+}
+/* Creates: invisible → visible → invisible → visible ... */
+
+/* ========================================
+   EXHIBIT 9: THE SHIMMER (Loading Skeleton)
+   ======================================== */
+
+/* SKELETON-CARD - Container for skeleton loading lines */
+.skeleton-card {
+  width: 100%; /* Full width */
+  padding: 1rem; /* Space inside */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack children vertically */
+  gap: 0.5rem; /* Space between children */
 }
 
-.skeleton-card{
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
+/* SKELETON-LINE - Base styles for loading placeholder bars */
 .skeleton-line {
-    height: 12px;
-    border-radius: 4px;
-    background: #333; 
-    
-    background-image: linear-gradient(
-        90deg, 
-        #333 0%, 
-        #444 50%, 
-        #333 100%
-        );
-    
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite linear;
-    
+  height: 12px; /* Height of placeholder bar */
+  border-radius: 4px; /* Rounded corners */
+  background: #333; /* Base dark gray color */
+
+  background-image: linear-gradient(
+    90deg,
+    /* Direction: left to right (90 degrees) */ #333 0%,
+    /* Start: dark gray */ #444 50%,
+    /* Middle: lighter gray (the "shimmer") */ #333 100%
+      /* End: dark gray again */
+  );
+  /* Creates a gradient that's dark → light → dark */
+
+  background-size: 200% 100%; /* Makes gradient 2x wider than element
+                                   This allows it to move across */
+  animation: shimmer 1.5s infinite linear; /* Shimmer animation */
 }
 
+/* TITLE VARIANT - Larger, shorter placeholder for title */
 .skeleton-line.title {
-    height: 20px;
-    width: 60%;
-    margin-bottom: 0.5rem;
+  height: 20px; /* Taller than regular lines */
+  width: 60%; /* Only 60% width (titles are usually shorter) */
+  margin-bottom: 0.5rem; /* Extra space below */
 }
 
+/* TEXT VARIANT - Full-width placeholder for text */
 .skeleton-line.text {
-    width: 100%;
+  width: 100%; /* Full width */
 }
 
+/* SHORT VARIANT - Shorter placeholder for incomplete lines */
 .skeleton-line.short {
-    width: 80%;
+  width: 80%; /* 80% width (like last line of paragraph) */
 }
 
-
+/* SHIMMER ANIMATION - Moves the gradient across */
 @keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0; 
-    }
+  0% {
+    background-position: -200% 0; /* Start: gradient is completely to the left (off-screen) */
+  }
+  100% {
+    background-position: 200% 0; /* End: gradient is completely to the right (off-screen) */
+  }
 }
+/* Because background-size is 200%, moving from -200% to 200% creates smooth sweep across element */
+
+/* ========================================
+   FOOTER - Bottom section of page
+   ======================================== */
 
 footer {
-    text-align: center;
-    padding: 1rem;
-    border-top: 1px solid #333;
-    width: 100%;
-    margin-top: auto;
-    font-size: 0.9rem;
-    color: #666;
+  text-align: center; /* Centers text */
+  padding: 1rem; /* Space inside */
+  border-top: 1px solid #333; /* Top border line */
+  width: 100%; /* Full width */
+  margin-top: auto; /* PUSHES FOOTER TO BOTTOM:
+                                   Because body uses flexbox with flex-direction: column,
+                                   margin-top: auto pushes this to the bottom of the page */
+  font-size: 0.9rem; /* Slightly smaller text */
+  color: #666; /* Medium gray (subdued) */
 }
