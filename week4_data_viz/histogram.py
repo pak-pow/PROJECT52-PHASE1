@@ -15,13 +15,16 @@ plt.figure(figsize=(10,6))
 # plt.hist returns 3 values, but we only need the plot
 # bins=30 means "split the scores into 30 buckets"
 # alpha=0.7 makes the bars slightly see-through
-# color='#ff00ff' is Magenta (Cyberpunk style)
 plt.hist(scores, bins=30, color='#ff00ff', edgecolor='black', alpha=0.7)
 
+# analysis lines
+# passing grade line at 60
 plt.axvline(60, color='red', linestyle='dashed', linewidth=2, label='Passing Grade (60)')
 
-plt.axvline(scores.mean(), color='yellow', linestyle='dashed', linewidth=2, label=f'Average ({scores.mean():.1f})')
+class_ave = scores.mean()
+plt.axvline(class_ave, color='yellow', linestyle='dashed', linewidth=2, label=f'Average ({scores.mean():.1f})')
 
+# decoration
 plt.title('Distribution of 1000 Exam Scores', fontsize=16)
 plt.xlabel('Score (0-100)')
 plt.ylabel('Number of Students')
