@@ -5,13 +5,13 @@ import numpy as np
 np.random.seed(42)  
 
 # X-axis: hours studied (normally distributed values, mean=1, std=10)
-study_hours = np.random.normal(1, 10, 50)
+study_hours = np.random.uniform(1, 12, 50)
 
 # Y Axis: Test Scores
-# Formula: Base Score (40) + (Hours * 5) + Random Noise (-10 to +10)
+# Formula: Base Score (0) + (Hours * 5) + Random noise (normally distributed, mean=0, std=5)
 # This simulates that studying helps (slope of 5), but some people are just lucky/unlucky (noise)
-noise = np.random.normal(0,5,50)
-scores = 40 + (study_hours * 5) + noise
+noise = np.random.normal(0,10,50)
+scores = 0 + (study_hours * 10) + noise
 
 # clip scores to be realistic ranging from 0-100
 scores = np.clip(scores, 0, 100)
@@ -45,6 +45,10 @@ plt.colorbar(label='Score Intensity') # Adds the color scale bar on the right
 # Theme
 plt.style.use('dark_background')
 plt.gca().set_facecolor('#1a1a1a') 
+
+# This forces the graph to start strictly at 0
+plt.xlim(0, 12)  # X Axis: 0 to 13 hours
+plt.ylim(0, 100) # Y Axis: 0 to 110 score
 
 # 5. THE REVEAL
 print(f"Calculated Trend: For every 1 hour studied, score increases by {m:.2f} points.")
