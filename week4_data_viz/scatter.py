@@ -25,3 +25,28 @@ trend_line = (m * study_hours) + b
 
 # visualization
 plt.figure(figsize=(10,6))
+
+# The Dots (Actual Student Data)
+# s=100 sets the size of the dots
+# c=scores colors the dots based on how high the score is (Cool effect)
+plt.scatter(study_hours, scores, c=scores, cmap='cool', alpha=0.8, s=100, edgecolors='white', label='Student Data')
+
+# The Line (The Mathematical Trend)
+plt.plot(study_hours, trend_line, color='white', linewidth=3, linestyle='--', label=f'Trend Line (Slope: {m:.2f})')
+
+# 4. DECORATION
+plt.title('Effect of Study Hours on Exam Score', fontsize=16, fontweight='bold')
+plt.xlabel('Hours Studied')
+plt.ylabel('Exam Score')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.colorbar(label='Score Intensity') # Adds the color scale bar on the right
+
+# Theme
+plt.style.use('dark_background')
+plt.gca().set_facecolor('#1a1a1a') 
+
+# 5. THE REVEAL
+print(f"Calculated Trend: For every 1 hour studied, score increases by {m:.2f} points.")
+plt.show()
+
