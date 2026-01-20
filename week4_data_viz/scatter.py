@@ -47,8 +47,8 @@ plt.style.use('dark_background')
 plt.gca().set_facecolor('#1a1a1a') 
 
 # This forces the graph to start strictly at 0
-plt.xlim(0, 12)  # X Axis: 0 to 13 hours
-plt.ylim(0, 100) # Y Axis: 0 to 110 score
+plt.xlim(0, 13)  # X Axis: 0 to 13 hours
+plt.ylim(0, 110) # Y Axis: 0 to 110 score
 
 # 5. THE REVEAL
 print(f"Calculated Trend: For every 1 hour studied, score increases by {m:.2f} points.")
