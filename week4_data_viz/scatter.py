@@ -4,7 +4,7 @@ import numpy as np
 # generate 50 students
 np.random.seed(42)  
 
-# X-axis: hours studied (normally distributed values, mean=1, std=10)
+# X-axis: hours studied (uniform random values between 1 and 12)
 study_hours = np.random.uniform(1, 12, 50)
 
 # Y Axis: Test Scores
