@@ -20,7 +20,7 @@ popularity = [90, 85, 70, 60, 50]
 
 # Create a 2x2 grid (2 rows, 2 columns)
 # figsize=(12, 10) makes the window large enough to see everything
-fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+fig, axs = plt.subplots(2, 2, figsize=(8, 8))
 
 # Apply Dark Mode manually to the Figure background
 fig.patch.set_facecolor('#ffffff') # type: ignore
