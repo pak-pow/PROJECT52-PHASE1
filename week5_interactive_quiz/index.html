@@ -5,30 +5,31 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>JS Interactive Quiz</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     
     </head>
     <body>
 
-        <div>
-            <div>
-                <h1></h1>
-                <p></p>
+        <div class="app-container">
+            <div class="quiz-header">
+                <h1>Dev Quiz</h1>
+                <p>Score: <span id="score">0</span></p>
             </div>
 
-            <div>
-                <h2></h2>
-                <div>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
+            <div class="quiz-card">
+                <h2 id="question-text">Question goes here</h2>
+                <div class="options-contatiner">
+                    <button class="btn" onclick="checkAnswer(this)">Option A</button>
+                    <button class="btn" onclick="checkAnswer(this)">Option B</button>
+                    <button class="btn" onclick="checkAnswer(this)">Option C</button>
+                    <button class="btn" onclick="checkAnswer(this)">Option <Data></Data></button>
                 </div>
             </div>
         </div>
+
+        <button id="next-btn" class="btn next-btn hide">Next Question</button>
         
         <script src="script.js" async defer></script>
     </body>
-</html>>
+</html>
