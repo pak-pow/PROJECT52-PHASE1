@@ -63,7 +63,30 @@ function loadQuestion() {
 }
 
 function checkAnswer(selectedButton) {
-  console.log("Button clicked:", selectedButton.innerText);
+  const selectedAnswer = selectedButton.innerText;
+  const correctAnswer = questions[currentQuestionIndex].correct;
+
+  // logic 
+  if (selectedAnswer == correctAnswer) {
+    
+    // turn green
+    selectedButton.classList.add('correct');
+    
+    // increment 1 point
+    score++;
+
+    // update screen
+    scoreElement.innerText = score;
+
+  } else {
+    selectedButton.classList.add('wrong');
+    optionButtons.forEach(btn => {
+      if (btn.innerText === correctAnswer) {
+        btn.classList.add("correct");
+      }
+    });
+  }
+
 }
 
 loadQuestion();
