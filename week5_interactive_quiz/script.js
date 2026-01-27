@@ -79,13 +79,42 @@ function checkAnswer(selectedButton) {
     scoreElement.innerText = score;
 
   } else {
+
+    // turn red
     selectedButton.classList.add('wrong');
+
+    // showing the user the right answer 
     optionButtons.forEach(btn => {
       if (btn.innerText === correctAnswer) {
         btn.classList.add("correct");
       }
     });
   }
+
+  optionButtons.forEach(btn => {
+    btn.disabled = true;
+  })
+
+  nextButton.classList.remove('hide')
+
+  nextButton.addEventListener('click', () => {
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+
+    } else {
+
+      alert(`Quiz Finished! Final Score: ${score}`);
+
+      // Reset for now
+      currentQuestionIndex = 0;
+      score = 0;  
+      scoreElement.innerText = 0;
+      loadQuestion();
+    }
+  });
 
 }
 
