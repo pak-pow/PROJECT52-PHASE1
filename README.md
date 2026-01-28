@@ -30,8 +30,8 @@ Phase 1 focuses on building a solid foundation in individual technologies. Each 
 | 1 | Personal Portfolio Website v1 | Frontend | HTML5, CSS3, Responsive Design | 3h | Done |
 | 2 | Python CLI Task Manager | Python | File I/O, CLI Arguments, Data Structures | 2h | Done |
 | 3 | CSS Animation Showcase | Frontend | Keyframes, Transitions, Transforms | 3h | Done |
-| 4 | Mathematical Visualization Tool | Python + Math | Matplotlib, NumPy, Functions | 4h | In-Progress |
-| 5 | JavaScript Interactive Quiz | Frontend | DOM Manipulation, Event Listeners | 3h | Not Started |
+| 4 | Mathematical Visualization Tool | Python + Math | Matplotlib, NumPy, Functions | 4h | Done |
+| 5 | JavaScript Interactive Quiz | Frontend | DOM Manipulation, Event Listeners | 3h | In-Progress |
 | 6 | Web Scraper for News Headlines | Python | BeautifulSoup, Requests, Data Parsing | 4h | Not Started |
 | 7 | Landing Page with TailwindCSS | Frontend | Utility-First CSS, Component Design | 3h | Not Started |
 | 8 | Algorithm Visualizer (Sorting) | Python + Math | Pygame, Algorithm Implementation | 5h | Not Started |
