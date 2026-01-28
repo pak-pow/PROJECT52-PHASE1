@@ -1,4 +1,8 @@
 // array of questions
+const quizCard = document.getElementById('quiz-card');
+const resultCard = document.getElementById('result-card');
+const finalScoreElement = document.getElementById('final-score');
+
 const questions = [
   {
     question: "Which language runs in a web browser?",
@@ -102,20 +106,40 @@ function checkAnswer(selectedButton) {
     currentQuestionIndex++;
 
     if (currentQuestionIndex < questions.length) {
-        loadQuestion();
+      loadQuestion();
 
     } else {
-
-      alert(`Quiz Finished! Final Score: ${score}`);
-
-      // Reset for now
-      currentQuestionIndex = 0;
-      score = 0;  
-      scoreElement.innerText = 0;
-      loadQuestion();
+      showResults();
     }
   });
+}
 
+function showResults(){
+
+  // hide the question card and next button
+  quizCard.classList.add('hide');
+  nextButton.classList.add('hide');
+
+  // show the result card
+  resultCard.classList.remove('hide');
+
+  // update the final score text
+  finalScoreElement.innerText = `${score} / ${questions.length}`;
+
+}
+
+function restartQuiz() {
+    // 1. Reset Logic
+    currentQuestionIndex = 0;
+    score = 0;
+    scoreElement.innerText = 0;
+    
+    // 2. Reset UI (Hide Result, Show Question)
+    resultCard.classList.add('hide');
+    quizCard.classList.remove('hide');
+    
+    // 3. Load First Question
+    loadQuestion();
 }
 
 loadQuestion();
