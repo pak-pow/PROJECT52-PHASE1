@@ -31,9 +31,23 @@ body {
 .quiz-header {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Ensures vertical center alignment */
     padding-bottom: 20px;
-    border-bottom: 1px solid #444;
     margin-bottom: 20px;
+    width: 100%; /* <--- THIS IS THE KEY FIX */
+    max-width: 500px; /* Matches card width so it aligns with the card edges */
+    border-bottom: 1px solid #444; 
+}
+
+.quiz-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.quiz-header p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #00ff88; /* Let's make the score color pop */
 }
 
 .btn {
@@ -130,21 +144,28 @@ body {
 
 /* NEW FOOTER */
 .card-footer {
-    background-color: #222; /* Darker bottom bar */
+    background-color: #222;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #333;
+    width: 100%; /* Ensure footer fills the card */
 }
 
+/* BASE FOOTER BUTTON STYLE */
 .footer-btn {
     border: none;
     border-radius: 6px;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Slightly bigger touch target */
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    font-family: inherit; /* Fixes font inconsistency */
+    display: flex; /* <--- NEW: Flex inside button */
+    align-items: center; /* <--- NEW: Vertically center text */
+    justify-content: center; /* <--- NEW: Horizontally center text */
+    gap: 8px; /* Space between text and arrow */
 }
 
 /* HINT BUTTON */
@@ -170,12 +191,11 @@ body {
     border-left: 3px solid #eebb00;
 }
 
-/* NEXT BUTTON */
+/* NEXT BUTTON SPECIFIC */
 .next-btn {
     background-color: #00ff88;
     color: #1a1a1a;
 }
-
 /* DISABLED STATE (The Grayed Out Look) */
 .next-btn:disabled {
     background-color: #444;
