@@ -8,6 +8,7 @@ const questions = [
     question: "Which language runs in a web browser?",
     options: ["Java", "C", "Python", "JavaScript"],
     correct: "JavaScript",
+    hint: "It's the only one natively supported by Chrome and Firefox."
   },
 
   {
@@ -19,18 +20,21 @@ const questions = [
       "Cars SUVs Sailboats",
     ],
     correct: "Cascading Style Sheets",
+    hint: "It describes how HTML elements are displayed on screen."
   },
 
   {
     question: "What year was JavaScript launched?",
     options: ["1996", "1995", "1994", "None of the above"],
     correct: "1995",
+    hint: "It was created by Brendan Eich in 10 days in the mid-90s."
   },
 
   {
     question: "Which HTML tag is used for JavaScript?",
     options: ["<js>", "<script>", "<javascript>", "<code >"],
     correct: "<script>",
+    hint: "It sounds like what an actor reads from."
   },
 ];
 
