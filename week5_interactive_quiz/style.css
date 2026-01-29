@@ -1,213 +1,222 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
 }
 
 body {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .app-container {
-    width: 100%;
-    max-width: 600px; /* <--- CHANGED FROM 600% TO 600px */
-    background-color: transparent; /* Remove the background box behind the card */
-    padding: 20px;
-    /* Removed shadow from container, so only the card has shadow */
-    box-shadow: none; 
-    text-align: center;
-    /* Flex hacks to center everything */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+  width: 100%;
+  max-width: 600px;
+  background-color: transparent;
+  padding: 20px;
+  box-shadow: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .quiz-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Ensures vertical center alignment */
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    width: 100%; /* <--- THIS IS THE KEY FIX */
-    max-width: 500px; /* Matches card width so it aligns with the card edges */
-    border-bottom: 1px solid #444; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+  border-bottom: 1px solid #444;
 }
 
 .quiz-header h1 {
-    font-size: 1.5rem;
-    margin: 0;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 .quiz-header p {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #00ff88; /* Let's make the score color pop */
+  font-size: 1.2rem;
+  margin: 0;
+  color: #00ff88;
 }
 
 .btn {
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    margin: 5px 0;
-    transition: 0.3s;
-    font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin: 5px 0;
+  transition: 0.3s;
+  font-size: 16px;
 }
 
 .btn:hover {
-    background-color: #444;
-    border-color:#fadcfa;
+  background-color: #444;
+  border-color: #fadcfa;
 }
 
 .correct {
-    background-color: #2e7d32; 
-    border-color: #00e676;
+  background-color: #2e7d32;
+  border-color: #00e676;
 }
 
 .wrong {
-    background-color: #c62828; 
-    border-color: #ff5252;
+  background-color: #c62828;
+  border-color: #ff5252;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .next-btn {
-    background-color: #00ff88;
-    color: #1a1a1a;
-    font-weight: bold;
-    width: 50%;
-    margin-top: 20px;
+  background-color: #00ff88;
+  color: #1a1a1a;
+  font-weight: bold;
+  width: 50%;
+  margin-top: 20px;
 }
 
 .next-btn:hover {
-    background-color: #00cc6a;
+  background-color: #00cc6a;
 }
 
 /* CARD DESIGN */
 .quiz-card {
-    background-color: #2d2d2d;
-    border-radius: 15px; /* Softer corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
-    overflow: hidden; /* Keeps the footer inside the rounded corners */
-    text-align: left; /* Text looks better left-aligned usually */
-    width: 100%;
-    max-width: 500px; /* Tighter width for focus */
+  background-color: #2d2d2d;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
 }
 
 /* BODY (Question + Options) */
 .card-body {
-    padding: 30px;
+  padding: 30px;
 }
 
 #question-text {
-    margin-bottom: 25px;
-    font-size: 1.2rem;
-    line-height: 1.5;
-    text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* BUTTONS GRID (2x2 Layout looks nice, or stacked) */
 .options-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between buttons */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .option-btn {
-    background-color: #383838;
-    color: #fff;
-    border: 2px solid #444;
-    padding: 12px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
-    text-align: left;
+  background-color: #383838;
+  color: #fff;
+  border: 2px solid #444;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  text-align: left;
 }
 
 .option-btn:hover {
-    background-color: #444;
-    border-color: #00ff88;
-    transform: translateX(5px); /* Subtle slide effect */
+  background-color: #444;
+  border-color: #00ff88;
+  transform: translateX(5px);
 }
 
 /* NEW FOOTER */
 .card-footer {
-    background-color: #222;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #333;
-    width: 100%;
+  background-color: #222;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  width: 100%;
 }
 
-/* BASE FOOTER BUTTON STYLE */
+/* BASE FOOTER BUTTON STYLE - FIXED FOR ALIGNMENT */
 .footer-btn {
-    border-radius: 6px;
-    padding: 10px 20px; /* Reduced padding slightly for better fit */
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 0.9rem; /* Standardize font size */
-    height: 40px; /* <--- FORCE EXACT HEIGHT FOR BOTH */
-    box-sizing: border-box; /* Ensures border doesn't add size */
+  border-radius: 6px;
+  padding: 0 20px; /* No vertical padding - height controls all sizing */
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  height: 42px;
+  line-height: 1;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin: 0;
 }
 
 /* HINT BUTTON */
 .hint-btn {
-    background-color: transparent;
-    color: #aaa;
-    border: 1px solid #444;
+  background-color: transparent;
+  color: #aaa;
+  border: 1px solid #444;
 }
 .hint-btn:hover {
-    color: #fff;
-    border-color: #fff;
+  color: #fff;
+  border-color: #fff;
 }
 
 /* HINT TEXT */
 .hint-text {
-    color: #eebb00; /* Yellow */
-    background-color: #332b00;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    text-align: center;
-    border-left: 3px solid #eebb00;
+  color: #eebb00;
+  background-color: #332b00;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  border-left: 3px solid #eebb00;
 }
 
 .next-btn {
-    background-color: #00ff88;
-    color: #1a1a1a;
-    border: 1px solid #00ff88; /* <--- ADD INVISIBLE BORDER TO MATCH HINT BUTTON SIZE */
+  background-color: #00ff88;
+  color: #1a1a1a;
+  border: 1px solid #00ff88;
 }
 
 /* DISABLED STATE */
 .next-btn:disabled {
-    background-color: #444;
-    color: #777;
-    border-color: #444; /* Match border to background so it looks flat */
-    cursor: not-allowed;
+  background-color: #444;
+  color: #777;
+  border-color: #444;
+  cursor: not-allowed;
 }
 
 /* UTILS */
-.correct { background-color: #2e7d32 !important; border-color: #00e676 !important; }
-.wrong { background-color: #c62828 !important; border-color: #ff5252 !important; }
-.hide { display: none; }
+.correct {
+  background-color: #2e7d32 !important;
+  border-color: #00e676 !important;
+}
+.wrong {
+  background-color: #c62828 !important;
+  border-color: #ff5252 !important;
+}
+.hide {
+  display: none;
+}
