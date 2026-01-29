@@ -150,22 +150,24 @@ body {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #333;
-    width: 100%; /* Ensure footer fills the card */
+    width: 100%;
 }
 
 /* BASE FOOTER BUTTON STYLE */
 .footer-btn {
-    border: none;
     border-radius: 6px;
-    padding: 12px 24px; /* Slightly bigger touch target */
+    padding: 10px 20px; /* Reduced padding slightly for better fit */
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    font-family: inherit; /* Fixes font inconsistency */
-    display: flex; /* <--- NEW: Flex inside button */
-    align-items: center; /* <--- NEW: Vertically center text */
-    justify-content: center; /* <--- NEW: Horizontally center text */
-    gap: 8px; /* Space between text and arrow */
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem; /* Standardize font size */
+    height: 40px; /* <--- FORCE EXACT HEIGHT FOR BOTH */
+    box-sizing: border-box; /* Ensures border doesn't add size */
 }
 
 /* HINT BUTTON */
@@ -191,15 +193,17 @@ body {
     border-left: 3px solid #eebb00;
 }
 
-/* NEXT BUTTON SPECIFIC */
 .next-btn {
     background-color: #00ff88;
     color: #1a1a1a;
+    border: 1px solid #00ff88; /* <--- ADD INVISIBLE BORDER TO MATCH HINT BUTTON SIZE */
 }
-/* DISABLED STATE (The Grayed Out Look) */
+
+/* DISABLED STATE */
 .next-btn:disabled {
     background-color: #444;
     color: #777;
+    border-color: #444; /* Match border to background so it looks flat */
     cursor: not-allowed;
 }
 
