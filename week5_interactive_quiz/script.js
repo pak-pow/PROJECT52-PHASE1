@@ -2,6 +2,7 @@
 const quizCard = document.getElementById('quiz-card');
 const resultCard = document.getElementById('result-card');
 const finalScoreElement = document.getElementById('final-score');
+const hintElement = document.getElementById('hint-text');
 
 const questions = [
   {
@@ -57,6 +58,9 @@ function loadQuestion() {
 
   // updating the quesion text
   questionElement.innerText = currentQuestionData.question;
+  
+  hintElement.innerText = `💡 Hint: ${currentQuestionData.hint}`;
+  hintElement.classList.add('hide');
 
   // updating the option buttons
   // looping through the 4 buttons and text from the data
@@ -67,7 +71,37 @@ function loadQuestion() {
   });
 
   // hide the next button until it is answered
-  nextButton.classList.add("hide");
+  nextButton.disabled = true;
+}
+
+function showHint() {
+    hintElement.classList.remove('hide');
+}
+
+function checkAnswer(selectedButton) {
+    const selectedAnswer = selectedButton.innerText;
+    const correctAnswer = questions[currentQuestionIndex].correct;
+
+    if (selectedAnswer === correctAnswer) {
+        selectedButton.classList.add('correct');
+        score++;
+        scoreElement.innerText = score;
+    } else {
+        selectedButton.classList.add('wrong');
+        optionButtons.forEach(btn => {
+            if (btn.innerText === correctAnswer) {
+                btn.classList.add('correct');
+            }
+        });
+    }
+
+    // Lock Options
+    optionButtons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+    // ENABLE NEXT BUTTON (Light it up!)
+    nextButton.disabled = false;
 }
 
 function checkAnswer(selectedButton) {

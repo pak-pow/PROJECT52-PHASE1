@@ -75,3 +75,111 @@ body {
 .next-btn:hover {
     background-color: #00cc6a;
 }
+
+/* CARD DESIGN */
+.quiz-card {
+    background-color: #2d2d2d;
+    border-radius: 15px; /* Softer corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
+    overflow: hidden; /* Keeps the footer inside the rounded corners */
+    text-align: left; /* Text looks better left-aligned usually */
+    width: 100%;
+    max-width: 500px; /* Tighter width for focus */
+}
+
+/* BODY (Question + Options) */
+.card-body {
+    padding: 30px;
+}
+
+#question-text {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* BUTTONS GRID (2x2 Layout looks nice, or stacked) */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+}
+
+.option-btn {
+    background-color: #383838;
+    color: #fff;
+    border: 2px solid #444;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.option-btn:hover {
+    background-color: #444;
+    border-color: #00ff88;
+    transform: translateX(5px); /* Subtle slide effect */
+}
+
+/* NEW FOOTER */
+.card-footer {
+    background-color: #222; /* Darker bottom bar */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+}
+
+.footer-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* HINT BUTTON */
+.hint-btn {
+    background-color: transparent;
+    color: #aaa;
+    border: 1px solid #444;
+}
+.hint-btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* HINT TEXT */
+.hint-text {
+    color: #eebb00; /* Yellow */
+    background-color: #332b00;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-left: 3px solid #eebb00;
+}
+
+/* NEXT BUTTON */
+.next-btn {
+    background-color: #00ff88;
+    color: #1a1a1a;
+}
+
+/* DISABLED STATE (The Grayed Out Look) */
+.next-btn:disabled {
+    background-color: #444;
+    color: #777;
+    cursor: not-allowed;
+}
+
+/* UTILS */
+.correct { background-color: #2e7d32 !important; border-color: #00e676 !important; }
+.wrong { background-color: #c62828 !important; border-color: #ff5252 !important; }
+.hide { display: none; }
