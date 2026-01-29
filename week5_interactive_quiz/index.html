@@ -11,38 +11,43 @@
     </head>
     <body>
 
-        <div class="app-container">
+    <div class="app-container">
+        
             <div class="quiz-header">
                 <h1>Dev Quiz</h1>
                 <p>Score: <span id="score">0</span></p>
             </div>
 
             <div class="quiz-card" id="quiz-card">
-                <h2 id="question-text">Question goes here</h2>
                 
-                <p id="hint-text" class="hint-text hide">Hint: This is a clue.</p>
+                <div class="card-body">
+                    <h2 id="question-text">Question goes here</h2>
+                
+                    <p id="hint-text" class="hint-text hide">Hint: This is a clue.</p>
 
-                <div class="options-container">
-                    <button class="btn" onclick="checkAnswer(this)">Option A</button>
-                    <button class="btn" onclick="checkAnswer(this)">Option B</button>
-                    <button class="btn" onclick="checkAnswer(this)">Option C</button>
-                    <button class="btn" onclick="checkAnswer(this)">Option D<Data></Data></button>
+                    <div class="options-container">
+                        <button class="btn option-btn" onclick="checkAnswer(this)">Option A</button>
+                        <button class="btn option-btn" onclick="checkAnswer(this)">Option B</button>
+                        <button class="btn option-btn" onclick="checkAnswer(this)">Option C</button>
+                        <button class="btn option-btn" onclick="checkAnswer(this)">Option D</button>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button class="footer-btn hint-btn" onclick="showHint()">💡 Hint</button>
+                    <button id="next-btn" class="footer-btn next-btn" disabled>Next Arrow ➔</button>
+                </div>
+
+            </div> 
+            <div id="result-card" class="quiz-card hide">
+                <div class="card-body">
+                    <h2>Quiz Completed!</h2>
+                    <p>Your Final Score:</p>
+                    <h1 id="final-score" style="font-size: 3em; margin: 20px 0; color: #00ff88;">0 / 4</h1>
+                    <button class="btn next-btn" onclick="restartQuiz()" style="width: 100%;">Play Again</button>
                 </div>
             </div>
-
-            <div class="card-footer">
-                <button class="footer-btn hint-btn" onclick="showHint()">💡 Hint</button>
-                <button id="next-btn" class="footer-btn next-btn" disabled>Next Arrow ➔</button>
-            </div>
-
-            <div id="result-card" class="quiz-card hide">
-                <h2>Quiz Completed!</h2>
-                <p>Your Final Score:</p>
-                <h1 id="final-score" style="font-size: 3em; margin: 20px 0; color: #00ff88;">0 / 4</h1>
-                <button class="btn next-btn" onclick="restartQuiz()" style="width: 100%;">Play Again</button>
-
-            </div>
-        </div>
+    </div>
         <script src="script.js" async defer></script>
     </body>
 </html>

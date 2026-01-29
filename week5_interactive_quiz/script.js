@@ -1,9 +1,21 @@
-// array of questions
+// ==========================
+// 1. SELECTORS & VARIABLES
+// ==========================
 const quizCard = document.getElementById('quiz-card');
 const resultCard = document.getElementById('result-card');
 const finalScoreElement = document.getElementById('final-score');
 const hintElement = document.getElementById('hint-text');
+const questionElement = document.getElementById("question-text");
+const scoreElement = document.getElementById("score");
+const optionButtons = document.querySelectorAll(".option-btn"); // Changed to match HTML class
+const nextButton = document.getElementById("next-btn");
 
+let currentQuestionIndex = 0;
+let score = 0;
+
+// ==========================
+// 2. THE DATA
+// ==========================
 const questions = [
   {
     question: "Which language runs in a web browser?",
@@ -11,26 +23,18 @@ const questions = [
     correct: "JavaScript",
     hint: "It's the only one natively supported by Chrome and Firefox."
   },
-
   {
     question: "What does CSS stand for?",
-    options: [
-      "Central Style Sheets",
-      "Cascading Style Sheets",
-      "Cascading Simple Sheets",
-      "Cars SUVs Sailboats",
-    ],
+    options: ["Central Style Sheets", "Cascading Style Sheets", "Cascading Simple Sheets", "Cars SUVs Sailboats"],
     correct: "Cascading Style Sheets",
     hint: "It describes how HTML elements are displayed on screen."
   },
-
   {
     question: "What year was JavaScript launched?",
     options: ["1996", "1995", "1994", "None of the above"],
     correct: "1995",
     hint: "It was created by Brendan Eich in 10 days in the mid-90s."
   },
-
   {
     question: "Which HTML tag is used for JavaScript?",
     options: ["<js>", "<script>", "<javascript>", "<code >"],
@@ -39,39 +43,27 @@ const questions = [
   },
 ];
 
-// current states
-let currentQuestionIndex = 0;
-let score = 0;
+// ==========================
+// 3. FUNCTIONS
+// ==========================
 
-// dom selector
-const questionElement = document.getElementById("question-text");
-const scoreElement = document.getElementById("score");
-
-// selecting all buttons inside the options container
-const optionButtons = document.querySelectorAll(".options-container .btn");
-const nextButton = document.getElementById("next-btn");
-
-// functions
 function loadQuestion() {
-  // getting the data from the current question
   const currentQuestionData = questions[currentQuestionIndex];
 
-  // updating the quesion text
+  // 1. Update Text
   questionElement.innerText = currentQuestionData.question;
-  
   hintElement.innerText = `💡 Hint: ${currentQuestionData.hint}`;
+  
+  // 2. Reset UI State
   hintElement.classList.add('hide');
-
-  // updating the option buttons
-  // looping through the 4 buttons and text from the data
+  nextButton.disabled = true; // Gray out Next button
+  
+  // 3. Update Buttons
   optionButtons.forEach((button, index) => {
     button.innerText = currentQuestionData.options[index];
     button.classList.remove("correct", "wrong");
     button.disabled = false;
   });
-
-  // hide the next button until it is answered
-  nextButton.disabled = true;
 }
 
 function showHint() {
@@ -79,53 +71,17 @@ function showHint() {
 }
 
 function checkAnswer(selectedButton) {
-    const selectedAnswer = selectedButton.innerText;
-    const correctAnswer = questions[currentQuestionIndex].correct;
-
-    if (selectedAnswer === correctAnswer) {
-        selectedButton.classList.add('correct');
-        score++;
-        scoreElement.innerText = score;
-    } else {
-        selectedButton.classList.add('wrong');
-        optionButtons.forEach(btn => {
-            if (btn.innerText === correctAnswer) {
-                btn.classList.add('correct');
-            }
-        });
-    }
-
-    // Lock Options
-    optionButtons.forEach(btn => {
-        btn.disabled = true;
-    });
-
-    // ENABLE NEXT BUTTON (Light it up!)
-    nextButton.disabled = false;
-}
-
-function checkAnswer(selectedButton) {
   const selectedAnswer = selectedButton.innerText;
   const correctAnswer = questions[currentQuestionIndex].correct;
 
-  // logic 
-  if (selectedAnswer == correctAnswer) {
-    
-    // turn green
+  // 1. Logic Check
+  if (selectedAnswer === correctAnswer) {
     selectedButton.classList.add('correct');
-    
-    // increment 1 point
     score++;
-
-    // update screen
     scoreElement.innerText = score;
-
   } else {
-
-    // turn red
     selectedButton.classList.add('wrong');
-
-    // showing the user the right answer 
+    // Show correct answer
     optionButtons.forEach(btn => {
       if (btn.innerText === correctAnswer) {
         btn.classList.add("correct");
@@ -133,51 +89,43 @@ function checkAnswer(selectedButton) {
     });
   }
 
+  // 2. Lock Board
   optionButtons.forEach(btn => {
     btn.disabled = true;
-  })
-
-  nextButton.classList.remove('hide')
-
-  nextButton.addEventListener('click', () => {
-
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex < questions.length) {
-      loadQuestion();
-
-    } else {
-      showResults();
-    }
   });
+
+  // 3. Unlock Next Button
+  nextButton.disabled = false;
 }
 
 function showResults(){
-
-  // hide the question card and next button
   quizCard.classList.add('hide');
-  nextButton.classList.add('hide');
-
-  // show the result card
   resultCard.classList.remove('hide');
-
-  // update the final score text
   finalScoreElement.innerText = `${score} / ${questions.length}`;
-
 }
 
 function restartQuiz() {
-    // 1. Reset Logic
     currentQuestionIndex = 0;
     score = 0;
     scoreElement.innerText = 0;
-    
-    // 2. Reset UI (Hide Result, Show Question)
     resultCard.classList.add('hide');
     quizCard.classList.remove('hide');
-    
-    // 3. Load First Question
     loadQuestion();
 }
 
+// ==========================
+// 4. EVENT LISTENERS
+// ==========================
+
+// We handle the Next click HERE, outside of other functions
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      showResults();
+    }
+});
+
+// START
 loadQuestion();

@@ -16,12 +16,16 @@ body {
 
 .app-container {
     width: 100%;
-    max-width: 600px;
-    background-color: #2d2d2d;
+    max-width: 600px; /* <--- CHANGED FROM 600% TO 600px */
+    background-color: transparent; /* Remove the background box behind the card */
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(250,220,250,0.1);
+    /* Removed shadow from container, so only the card has shadow */
+    box-shadow: none; 
     text-align: center;
+    /* Flex hacks to center everything */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .quiz-header {
