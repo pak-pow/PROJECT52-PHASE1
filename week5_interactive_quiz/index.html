@@ -19,12 +19,20 @@
 
             <div class="quiz-card" id="quiz-card">
                 <h2 id="question-text">Question goes here</h2>
+                
+                <p id="hint-text" class="hint-text hide">Hint: This is a clue.</p>
+
                 <div class="options-container">
                     <button class="btn" onclick="checkAnswer(this)">Option A</button>
                     <button class="btn" onclick="checkAnswer(this)">Option B</button>
                     <button class="btn" onclick="checkAnswer(this)">Option C</button>
                     <button class="btn" onclick="checkAnswer(this)">Option D<Data></Data></button>
                 </div>
+            </div>
+
+            <div class="card-footer">
+                <button class="footer-btn hint-btn" onclick="showHint()">💡 Hint</button>
+                <button id="next-btn" class="footer-btn next-btn" disabled>Next Arrow ➔</button>
             </div>
 
             <div id="result-card" class="quiz-card hide">
@@ -35,9 +43,6 @@
 
             </div>
         </div>
-
-        <button id="next-btn" class="btn next-btn hide">Next Question</button>
-        
         <script src="script.js" async defer></script>
     </body>
 </html>
