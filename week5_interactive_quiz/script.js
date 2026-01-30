@@ -228,5 +228,25 @@ nextButton.addEventListener("click", () => {
   }
 });
 
+const creatorInputs = [newQ, newA, newB, newC, newD, newCorrect, newHint];
+
+creatorInputs.forEach((input, index) => {
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Stop it from doing anything else
+            
+            const nextInput = creatorInputs[index + 1];
+            
+            if (nextInput) {
+                // If there is a next box, jump to it
+                nextInput.focus();
+            } else {
+                // If we are at the last box (Hint), SAVE the question!
+                saveQuestion();
+            }
+        }
+    });
+});
+
 // START
 goHome();
