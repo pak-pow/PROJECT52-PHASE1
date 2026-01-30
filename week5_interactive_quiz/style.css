@@ -218,5 +218,23 @@ body {
   border-color: #ff5252 !important;
 }
 .hide {
-  display: none;
+  display: none !important;
+}
+
+.input-field {
+  width: 100;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #383838;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.input-field:focus{
+  outline: none;
+  border-color: #00ff88;
+  background-color: #444;
 }
