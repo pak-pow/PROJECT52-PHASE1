@@ -84,8 +84,6 @@ body {
   background-color: #00ff88;
   color: #1a1a1a;
   font-weight: bold;
-  width: 50%;
-  margin-top: 20px;
 }
 
 .next-btn:hover {
@@ -222,7 +220,7 @@ body {
 }
 
 .input-field {
-  width: 100;
+  width: 100%;
   padding: 12px;
   margin-bottom: 10px;
   background-color: #383838;
@@ -233,7 +231,7 @@ body {
   font-size: 0.9rem;
 }
 
-.input-field:focus{
+.input-field:focus {
   outline: none;
   border-color: #00ff88;
   background-color: #444;
