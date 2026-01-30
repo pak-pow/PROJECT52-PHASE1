@@ -11,7 +11,7 @@ const questionElement = document.getElementById("question-text");
 const hintElement = document.getElementById("hint-text");
 const scoreElement = document.getElementById("score");
 const finalScoreElement = document.getElementById("final-score");
-const optionButtons = document.querySelectorAll(".option-btn");
+const optionButtons = document.querySelectorAll("#game-screen .option-btn");
 const nextButton = document.getElementById("next-btn");
 
 // CREATOR INPUTS
@@ -106,6 +106,17 @@ function saveQuestion() {
 
   // 5. Go back home
   goHome();
+}
+
+function resetDefaults() {
+    // 1. Clear the custom data
+    localStorage.removeItem('myQuizQuestions');
+    
+    // 2. Reload defaults
+    questions = defaultQuestions;
+    
+    // 3. Feedback
+    alert("Questions reset to default!");
 }
 
 function goHome() {
