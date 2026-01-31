@@ -140,15 +140,17 @@ function showCreator() {
   loadQuestionsFromStorage(); // Load existing so we don't overwrite
 }
 
+// FUNCTION: Start the Game
 function startQuiz() {
-  loadQuestionsFromStorage(); // Load latest data
+  loadQuestionsFromStorage(); // Ensure we have the latest questions
 
+  // Safety Check: What if the list is empty?
   if (questions.length === 0) {
     alert("No questions found! Go create some first.");
     return;
   }
 
-  // Reset Game State
+  // Reset Game State (Score and Index must be 0)
   currentQuestionIndex = 0;
   score = 0;
   scoreElement.innerText = 0;
@@ -156,27 +158,29 @@ function startQuiz() {
   // Switch Screens
   homeScreen.classList.add("hide");
   gameScreen.classList.remove("hide");
-  quizCard.classList.remove("hide"); // Ensure the card itself is visible
+  quizCard.classList.remove("hide"); 
 
-  loadQuestion();
+  loadQuestion(); // Run the logic to display Question #1
 }
 
+// FUNCTION: Inject the current question into the HTML
 function loadQuestion() {
+  // 1. Get the data for the current index (e.g., Question 0)
   const currentQuestionData = questions[currentQuestionIndex];
 
-  // 1. Update Text
+  // 2. Inject Text into the DOM
   questionElement.innerText = currentQuestionData.question;
   hintElement.innerText = `💡 Hint: ${currentQuestionData.hint}`;
 
-  // 2. Reset UI State
-  hintElement.classList.add("hide");
-  nextButton.disabled = true; // Gray out Next button
+  // 3. Reset UI State for the new question
+  hintElement.classList.add("hide"); // Hide hint
+  nextButton.disabled = true;        // Disable "Next" button (User must pick an answer first)
 
-  // 3. Update Buttons
+  // 4. Update the 4 Option Buttons
   optionButtons.forEach((button, index) => {
-    button.innerText = currentQuestionData.options[index];
-    button.classList.remove("correct", "wrong");
-    button.disabled = false;
+    button.innerText = currentQuestionData.options[index]; // Set text
+    button.classList.remove("correct", "wrong");           // Remove old colors (Green/Red)
+    button.disabled = false;                               // Make clickable again
   });
 }
 
@@ -184,18 +188,22 @@ function showHint() {
   hintElement.classList.remove("hide");
 }
 
+// FUNCTION: Logic for checking if the click was right or wrong
 function checkAnswer(selectedButton) {
   const selectedAnswer = selectedButton.innerText;
   const correctAnswer = questions[currentQuestionIndex].correct;
 
-  // 1. Logic Check
+  // 1. Compare Strings
   if (selectedAnswer === correctAnswer) {
-    selectedButton.classList.add("correct");
-    score++;
-    scoreElement.innerText = score;
+    // CORRECT!
+    selectedButton.classList.add("correct"); // Turn Green
+    score++;                                 // Add Point
+    scoreElement.innerText = score;          // Update Header
   } else {
-    selectedButton.classList.add("wrong");
-    // Show correct answer
+    // WRONG!
+    selectedButton.classList.add("wrong");   // Turn Red
+    
+    // Educational Moment: Find and highlight the RIGHT answer so the user learns
     optionButtons.forEach((btn) => {
       if (btn.innerText === correctAnswer) {
         btn.classList.add("correct");
@@ -203,19 +211,20 @@ function checkAnswer(selectedButton) {
     });
   }
 
-  // 2. Lock Board
+  // 2. Lock the Board (Disable all buttons so user can't cheat/click twice)
   optionButtons.forEach((btn) => {
     btn.disabled = true;
   });
 
-  // 3. Unlock Next Button
-  nextButton.disabled = false;
+  // 3. Allow user to proceed
+  nextButton.disabled = false; // Enable "Next" button
 }
 
+// FUNCTION: Show the final scorecard
 function showResults() {
-  quizCard.classList.add("hide");
-  resultCard.classList.remove("hide");
-  finalScoreElement.innerText = `${score} / ${questions.length}`;
+  quizCard.classList.add("hide");       // Hide Questions
+  resultCard.classList.remove("hide");  // Show Results
+  finalScoreElement.innerText = `${score} / ${questions.length}`; // "3 / 4"
 }
 
 function restartQuiz() {
@@ -226,35 +235,36 @@ function restartQuiz() {
 // 4. EVENT LISTENERS
 // ==========================
 
-// We handle the Next click HERE, outside of other functions
+// Listener for the "Next Arrow" button
 nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
+  currentQuestionIndex++; // Move to next index
+  
+  // Logic: Do we have more questions?
   if (currentQuestionIndex < questions.length) {
-    loadQuestion();
+    loadQuestion(); // Yes? Load it.
   } else {
-    showResults();
+    showResults();  // No? End Game.
   }
 });
 
+// Listener for "Enter Key" navigation in Creator Mode
 const creatorInputs = [newQ, newA, newB, newC, newD, newCorrect, newHint];
 
 creatorInputs.forEach((input, index) => {
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            e.preventDefault(); // Stop it from doing anything else
+            e.preventDefault(); // Stop default behavior
             
-            const nextInput = creatorInputs[index + 1];
+            const nextInput = creatorInputs[index + 1]; // Find the next box
             
             if (nextInput) {
-                // If there is a next box, jump to it
-                nextInput.focus();
+                nextInput.focus(); // Jump cursor to next box
             } else {
-                // If we are at the last box (Hint), SAVE the question!
-                saveQuestion();
+                saveQuestion(); // If no next box, we are at the end. Save!
             }
         }
     });
 });
 
-// START
+// INITIALIZATION: Run this when the script loads to ensure we start at the Home Screen
 goHome();
