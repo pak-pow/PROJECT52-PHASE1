@@ -24,15 +24,18 @@ body {
   height: 100vh; /*force the body to be 100% of the viewport height*/
 }
 
+/* 
+This is the invisible column that holds the Header and the Card. 
+*/
 .app-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 600px; /* Constraints width so it doesn't look stretched on big screens */
   background-color: transparent;
   padding: 20px;
   box-shadow: none;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Using Flexbox again... */
+  flex-direction: column; /* ...but stacking items Top-to-Bottom */
   align-items: center;
 }
 
@@ -51,31 +54,24 @@ body {
 }
 
 /* UPDATE HEADER LAYOUT TO FIT BUTTON */
+/* 
+This uses "justify-content: space-between" to push the Home Button to the Left
+and the Score to the Right, leaving the Title in the middle. 
+*/
 .quiz-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Vertical alignment */
   padding-bottom: 20px;
   margin-bottom: 20px;
   width: 100%;
   max-width: 500px;
-  border-bottom: 1px solid #444;
-}
-
-.quiz-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 500px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #444; /* The subtle line separator */
 }
 
 .quiz-header h1 {
-  flex-grow: 1;
-  text-align: center; /* Optional: Center the title */
+  flex-grow: 1; /* Magic! This tells the Title to "eat up" all available empty space, pushing the button and score to the edges. */
+  text-align: center;
   font-size: 1.5rem;
   margin: 0;
 }
@@ -92,30 +88,32 @@ body {
   border: 1px solid #555;
   padding: 10px 20px;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: pointer; /* Changes mouse to 'Hand' pointer */
   width: 100%;
   margin: 5px 0;
-  transition: 0.3s;
+  transition: 0.3s; /* Smooths out color changes (Hover effects take 0.3s) */
   font-size: 16px;
 }
 
 .btn:hover {
   background-color: #444;
-  border-color: #fadcfa;
+  border-color: #fadcfa; /* Light pink border on hover */
 }
 
+/* 7. UTILITY CLASSES (State Changes)
+   These are applied by JS to change colors instantly. */
 .correct {
-  background-color: #2e7d32;
-  border-color: #00e676;
+  background-color: #2e7d32 !important; /* !important overrides any other background color */
+  border-color: #00e676 !important;
 }
 
 .wrong {
-  background-color: #c62828;
-  border-color: #ff5252;
+  background-color: #c62828 !important;
+  border-color: #ff5252 !important;
 }
 
 .hide {
-  display: none;
+  display: none !important; /* The magic cloak used for SPA navigation */
 }
 
 .next-btn {
@@ -187,24 +185,26 @@ body {
   width: 100%;
 }
 
-/* BASE FOOTER BUTTON STYLE - FIXED FOR ALIGNMENT */
+/*
+We set explicit heights so the "Hint" and "Next" buttons are mathematically identical. 
+*/
 .footer-btn {
   border-radius: 6px;
-  padding: 0 20px; /* No vertical padding - height controls all sizing */
+  padding: 0 20px; 
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
   font-family: inherit;
-  display: inline-flex;
+  display: inline-flex; /* Allows centering text inside the button */
   align-items: center;
   justify-content: center;
   gap: 8px;
   font-size: 0.9rem;
-  height: 42px;
+  height: 42px; /* FIXED HEIGHT */
   line-height: 1;
   box-sizing: border-box;
   vertical-align: middle;
-  margin: 0;
+  margin: 0; /* Removing the "Ghost Margin" */
 }
 
 /* HINT BUTTON */
@@ -253,6 +253,7 @@ body {
   background-color: #c62828 !important;
   border-color: #ff5252 !important;
 }
+
 .hide {
   display: none !important;
 }
@@ -269,8 +270,9 @@ body {
   font-size: 0.9rem;
 }
 
+/* Focus state: When user clicks inside the box */
 .input-field:focus {
-  outline: none;
-  border-color: #00ff88;
+  outline: none; /* Removes default browser blue glow */
+  border-color: #00ff88; /* Adds OUR green glow */
   background-color: #444;
 }
