@@ -1,20 +1,25 @@
 // ==========================
 // 1. SELECTORS & VARIABLES
 // ==========================
-const homeScreen = document.getElementById("home-screen");
-const creatorScreen = document.getElementById("creator-screen");
-const gameScreen = document.getElementById("game-screen");
-const resultCard = document.getElementById("result-card");
-const quizCard = document.getElementById("quiz-card"); // The card inside game screen
+// We "reach into" the HTML to grab specific elements so we can control them.
+const homeScreen = document.getElementById("home-screen");      // The Main Menu Div
+const creatorScreen = document.getElementById("creator-screen");// The "Add Question" Div
+const gameScreen = document.getElementById("game-screen");      // The Quiz Playing Div
+const resultCard = document.getElementById("result-card");      // The Final Score Div
+const quizCard = document.getElementById("quiz-card");          // The inner card inside the game screen
 
-const questionElement = document.getElementById("question-text");
-const hintElement = document.getElementById("hint-text");
-const scoreElement = document.getElementById("score");
-const finalScoreElement = document.getElementById("final-score");
-const optionButtons = document.querySelectorAll("#game-screen .option-btn");
+// Text Elements (Where we inject strings)
+const questionElement = document.getElementById("question-text"); // The <h2> where the question goes
+const hintElement = document.getElementById("hint-text");         // The <p> for the hint
+const scoreElement = document.getElementById("score");            // The small score counter in header
+const finalScoreElement = document.getElementById("final-score"); // The big score at the end
+
+// Button Groups
+// CRITICAL FIX FROM DAY 6: We specifically look inside "#game-screen" to avoid grabbing the Home Menu buttons by mistake.
+const optionButtons = document.querySelectorAll("#game-screen .option-btn"); 
 const nextButton = document.getElementById("next-btn");
 
-// CREATOR INPUTS
+// CREATOR INPUTS (The form fields)
 const newQ = document.getElementById("new-q");
 const newA = document.getElementById("new-a");
 const newB = document.getElementById("new-b");
@@ -23,13 +28,15 @@ const newD = document.getElementById("new-d");
 const newCorrect = document.getElementById("new-correct");
 const newHint = document.getElementById("new-hint");
 
-let currentQuestionIndex = 0;
-let score = 0;
-let questions = [];
+// STATE VARIABLES (The Memory)
+let currentQuestionIndex = 0; // Tracks which question we are on (0, 1, 2...)
+let score = 0;                // Tracks how many points the user has
+let questions = [];           // An empty list that we will fill with data later
 
 // ==========================
 // 2. THE DATA
 // ==========================
+// This is the "Fallback" data. If the user has no saved questions, we use these.
 const defaultQuestions = [
   {
     question: "Which language runs in a web browser?",
@@ -66,64 +73,65 @@ const defaultQuestions = [
 // 3. FUNCTIONS
 // ==========================
 
+// FUNCTION: Load data from the browser's hard drive (Local Storage)
 function loadQuestionsFromStorage() {
+  // 1. Check if "myQuizQuestions" exists in the browser's storage
   const stored = localStorage.getItem("myQuizQuestions");
+  
   if (stored) {
+    // 2. If yes, turn the text string back into a JavaScript Array (JSON.parse)
     questions = JSON.parse(stored);
   } else {
+    // 3. If no, load the defaults defined above
     questions = defaultQuestions;
   }
 }
 
+// FUNCTION: Save a new question from the Creator Mode
 function saveQuestion() {
-  // 1. Validate (Make sure they typed something)
+  // 1. Validation: Don't save if the Question or Answer is empty!
   if (!newQ.value || !newCorrect.value) {
     alert("Please fill in at least the Question and Correct Answer!");
-    return;
+    return; // Stop the function here
   }
 
-  // 2. Create Object
+  // 2. Object Creation: Pack the inputs into a neat JSON object
   const newQuestion = {
     question: newQ.value,
-    options: [newA.value, newB.value, newC.value, newD.value],
+    options: [newA.value, newB.value, newC.value, newD.value], // Array of options
     correct: newCorrect.value,
-    hint: newHint.value || "No hint available.",
+    hint: newHint.value || "No hint available.", // Logical OR: If hint is empty, use default string
   };
 
-  // 3. Add to List & Save
+  // 3. Update State: Add to our list
   questions.push(newQuestion);
+  
+  // 4. Persist: Save the updated list to the browser (Must convert Array -> String with JSON.stringify)
   localStorage.setItem("myQuizQuestions", JSON.stringify(questions));
 
-  // 4. Success & Reset
+  // 5. Feedback & Cleanup
   alert("Question Saved!");
-  newQ.value = "";
-  newA.value = "";
-  newB.value = "";
-  newC.value = "";
-  newD.value = "";
-  newCorrect.value = "";
-  newHint.value = "";
+  // Clear all text boxes so they are ready for the next question
+  newQ.value = ""; newA.value = ""; newB.value = "";
+  newC.value = ""; newD.value = ""; newCorrect.value = ""; newHint.value = "";
 
-  // 5. Go back home
+  // 6. Navigate back to Main Menu
   goHome();
 }
 
+// FUNCTION: Delete custom data and restore the original quiz
 function resetDefaults() {
-    // 1. Clear the custom data
-    localStorage.removeItem('myQuizQuestions');
-    
-    // 2. Reload defaults
-    questions = defaultQuestions;
-    
-    // 3. Feedback
-    alert("Questions reset to default!");
+  localStorage.removeItem('myQuizQuestions'); // Delete the file
+  questions = defaultQuestions;               // Reload RAM with defaults
+  alert("Questions reset to default!");       // Tell user
 }
 
+// FUNCTION: Navigation - Show Home, Hide everything else
 function goHome() {
-  homeScreen.classList.remove("hide");
-  creatorScreen.classList.add("hide");
-  gameScreen.classList.add("hide");
-  resultCard.classList.add("hide");
+  homeScreen.classList.remove("hide");    // Show
+  creatorScreen.classList.add("hide");    // Hide
+  gameScreen.classList.add("hide");       // Hide
+  resultCard.classList.add("hide");       // Hide
 }
 
 function showCreator() {
