@@ -1,32 +1,46 @@
-<!DOCTYPE <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
+<!DOCTYPE html>
+
+<!-- Root element that contains the whole HTML document -->
+<html> 
+
+  <!-- Head: metadata, title, links to CSS, etc. -->
+  <head> 
+  
+    <!-- Declares character encoding (UTF-8) so text renders correctly -->
+    <meta charset="utf-8" /> 
+
+    <!-- Tells IE to use the latest rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>JS Interactive Quiz</title>
+    
+    <!-- The page title shown in the browser tab -->
+    <title>JS Interactive Quiz</title> 
+
+    <!-- Responsive viewport for mobile scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Link to external stylesheet (style.css) -->
+    <link rel="stylesheet" href="style.css" /> 
   </head>
 
-  <body>
-    <div class="app-container">
-      <div class="quiz-header">
-        <button onclick="goHome()" class="icon-btn" title="Home">🏠</button>
-        <h1>Simple Quiz Platform</h1>
-        <p>Score: <span id="score">0</span></p>
+  <body> <!-- Visible page content starts here -->
+    <div class="app-container"> <!-- Main container for the app, used for centering and layout -->
+      <div class="quiz-header"> <!-- Top header with home button, title, and score -->
+        <button onclick="goHome()" class="icon-btn" title="Home">🏠</button> <!-- Home button; clicks call goHome() JS function -->
+        <h1>Simple Quiz Platform</h1> <!-- Main title displayed in header -->
+        <p>Score: <span id="score">0</span></p> <!-- Inline score display; updated by JS using element with id="score" -->
       </div>
 
-      <div id="home-screen" class="quiz-card">
-        <div class="card-body" style="text-align: center">
-          <h2>Welcome, User.</h2>
-          <p style="margin-bottom: 30px; color: #aaa">
+      <div id="home-screen" class="quiz-card"> <!-- Home screen card shown by default -->
+        <div class="card-body" style="text-align: center"> <!-- Card content area; inline styling centers text -->
+          <h2>Welcome, User.</h2> <!-- Greeting -->
+          <p style="margin-bottom: 30px; color: #aaa"> <!-- Short description with inline spacing and muted color -->
             What would you like to do?
           </p>
-          <div class="options-container">
-            <button class="btn option-btn" onclick="startQuiz()">
+          <div class="options-container"> <!-- Container for the three action buttons -->
+            <button class="btn option-btn" onclick="startQuiz()"> <!-- Play button calls startQuiz() -->
               ▶️ Play Quiz
             </button>
-            <button class="btn option-btn" onclick="showCreator()">
+            <button class="btn option-btn" onclick="showCreator()"> <!-- Show creator screen to add questions -->
               🛠️ Create Questions
             </button>
             <button
@@ -35,77 +49,77 @@
               style="background-color: #7b1717; margin-top: 10px"
             >
               ⚠️ Reset Questions
-            </button>
+            </button> <!-- Reset button clears custom questions and reloads defaults -->
           </div>
         </div>
       </div>
 
-      <div id="creator-screen" class="quiz-card hide">
-        <div class="card-body">
+      <div id="creator-screen" class="quiz-card hide"> <!-- Creator screen; hidden by default via class "hide" -->
+        <div class="card-body"> <!-- Form inputs for creating a new question -->
           <h2>Add New Question</h2>
           <input
             type="text"
             id="new-q"
             class="input-field"
             placeholder="Type question here..."
-          />
+          /> <!-- Text input for question text; id used by JS to read value -->
           <input
             type="text"
             id="new-a"
             class="input-field"
             placeholder="Option A"
-          />
+          /> <!-- Option A input -->
           <input
             type="text"
             id="new-b"
             class="input-field"
             placeholder="Option B"
-          />
+          /> <!-- Option B input -->
           <input
             type="text"
             id="new-c"
             class="input-field"
             placeholder="Option C"
-          />
+          /> <!-- Option C input -->
           <input
             type="text"
             id="new-d"
             class="input-field"
             placeholder="Option D"
-          />
+          /> <!-- Option D input -->
           <input
             type="text"
             id="new-correct"
             class="input-field"
             placeholder="Correct Answer (e.g., Option A)"
-          />
+          /> <!-- Field where user types the correct answer string -->
           <input
             type="text"
             id="new-hint"
             class="input-field"
             placeholder="Hint text..."
-          />
+          /> <!-- Optional hint for the question -->
         </div>
 
-        <div class="card-footer">
-          <button class="footer-btn hint-btn" onclick="goHome()">Back</button>
+        <div class="card-footer"> <!-- Footer with actions for creator screen -->
+          <button class="footer-btn hint-btn" onclick="goHome()">Back</button> <!-- Back goes to home -->
           <button class="footer-btn next-btn" onclick="saveQuestion()">
             Save 💾
-          </button>
+          </button> <!-- Save button triggers saveQuestion() to store new question -->
         </div>
       </div>
 
-      <div id="game-screen" class="hide">
-        <div class="quiz-card" id="quiz-card">
+      <div id="game-screen" class="hide"> <!-- Actual quiz game screen; hidden at start -->
+        <div class="quiz-card" id="quiz-card"> <!-- Card that contains question and options -->
           <div class="card-body">
-            <h2 id="question-text">Question goes here</h2>
+            <h2 id="question-text">Question goes here</h2> <!-- Placeholder for the question text; updated by JS -->
 
-            <p id="hint-text" class="hint-text hide">Hint: This is a clue.</p>
+            <p id="hint-text" class="hint-text hide">Hint: This is a clue.</p> <!-- Hint element hidden by default -->
 
             <div class="options-container">
               <button class="btn option-btn" onclick="checkAnswer(this)">
                 Option A
-              </button>
+              </button> <!-- Option buttons call checkAnswer(this) passing the clicked button -->
               <button class="btn option-btn" onclick="checkAnswer(this)">
                 Option B
               </button>
@@ -121,15 +135,15 @@
           <div class="card-footer">
             <button class="footer-btn hint-btn" onclick="showHint()">
               💡 Hint
-            </button>
+            </button> <!-- Hint button reveals the hint -->
             <button id="next-btn" class="footer-btn next-btn" disabled>
               Next Arrow ➔
-            </button>
+            </button> <!-- Next button progresses to next question; initially disabled until an answer is chosen -->
           </div>
         </div>
       </div>
 
-      <div id="result-card" class="quiz-card hide">
+      <div id="result-card" class="quiz-card hide"> <!-- Result screen shown when quiz ends -->
         <div class="card-body">
           <h2>Quiz Completed!</h2>
           <p>Your Final Score:</p>
@@ -138,18 +152,18 @@
             style="font-size: 3em; margin: 20px 0; color: #00ff88"
           >
             0 / 0
-          </h1>
+          </h1> <!-- Final score placeholder updated by JS -->
           <button
             class="btn next-btn"
             onclick="restartQuiz()"
             style="width: 100%"
           >
             Play Again
-          </button>
+          </button> <!-- Button restarts (sends user home) -->
         </div>
       </div>
     </div>
 
-    <script src="script.js" async defer></script>
+    <script src="script.js" async defer></script> <!-- Loads script.js; async+defer is redundant but tries to load script without blocking -->
   </body>
 </html>
