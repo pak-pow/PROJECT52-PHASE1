@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 # our targer 
 # we are going to be scrapping the hacker news it is a simple text-based tech news site
@@ -19,15 +20,44 @@ if response.status_code == 200:
     # looking for a span tags that have a class titleline
     headlines = soup.select("span.titleline")
     
-    # looping
-    # iterating through the list of headlines we found
-    print(f"\nFound {len(headlines)} Headlines:\n")
+    # We will store our data in this list
+    data_to_save = []
     
-    for i, headline in enumerate(headlines, 1):
-        # The actual text is inside an <a> tag inside the <span>
+    # Loop through ONLY the top 10 headlines ([:10])
+    print("\n🔍 Extracting Top 10 Headlines & Links:\n")
+    
+    for i, headline in enumerate(headlines[:10], 1):
+        # 1. Get the Text
         text = headline.find("a").get_text()
+        
+        # 2. Get the Link (The 'href' attribute inside the <a> tag)
+        link = headline.find("a")['href']
+        
+        # 3. Print to console (so we can see it working)
         print(f"{i}. {text}")
-
+        print(f"   👉 {link}")
+        
+        # 4. Add to our list
+        data_to_save.append([i, text, link])
+    
+    
+    filename = "hackernews.csv"
+    print(f"\n💾 Saving to {filename}...")
+    
+    # 'w' = write mode
+    # newline='' prevents empty lines between rows
+    # encoding='utf-8' handles special characters (like emojis or quotes)
+    with open(filename, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        
+        # Write the Header Row
+        writer.writerow(["Rank", "Headline", "Link"])
+        
+        # Write the Data Rows
+        writer.writerows(data_to_save)
+        
+    print("✅ Done! Check your folder.")
+    
 else:
     print("Failed to Connect")
 
