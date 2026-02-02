@@ -25,6 +25,8 @@ if response.status_code == 200:
         print(f"📖 {title}")
         print(f"   💰 {raw_price} | 📦 {stock} | ⭐ {rating}")
         print("-" * 20)
+        
+        all_books.append([title, raw_price, stock, rating])
     
     file_name = "books_inventory.csv"
     with open(file_name, 'w', newline='', encoding='utf-8') as file:
