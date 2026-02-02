@@ -28,7 +28,7 @@ if response.status_code == 200:
     
     file_name = "books_inventory.csv"
     with open(file_name, 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer
+        writer = csv.writer(file)
         writer.writerow(["Title", "Price", "Stock", "Rating"])
         writer.writerows(all_books)
         
