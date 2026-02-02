@@ -18,6 +18,9 @@ if response.status_code == 200:
     for book in books:
         title = book.h3.find("a")['title']
         raw_price = book.select_one(".price_color").text
+        price_text = raw_price.replace('£', '')
+        price_text2 = price_text.replace('Â', '')
+        price = float(price_text2)
         stock = book.select_one(".instock.availability").text.strip()
         star_class = book.select_one(".star-rating")['class']
         rating = star_class[1] 
@@ -26,7 +29,7 @@ if response.status_code == 200:
         print(f"   💰 {raw_price} | 📦 {stock} | ⭐ {rating}")
         print("-" * 20)
         
-        all_books.append([title, raw_price, stock, rating])
+        all_books.append([title, price, stock, rating])
     
     file_name = "books_inventory.csv"
     with open(file_name, 'w', newline='', encoding='utf-8') as file:
