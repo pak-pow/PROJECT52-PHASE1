@@ -10,7 +10,9 @@ all_books = []
 
 print("Starting scrapping...")
 
-while True:
+page = 0
+
+while page != 10:
     print(f"Scrapping: {base_url}")
     respone = requests.get(base_url)
     soup = BeautifulSoup(respone.text, "html.parser")
@@ -27,5 +29,19 @@ while True:
         rating = book.select_one(".star-rating")["class"][1]
         
         all_books.append([title, price, stock, rating])
-
         
+    next_button = soup.select_one("li.next a")
+    
+    if next_button:
+        next_link = next_button['href']
+        current_url = urljoin(current_url, next_link)
+        print(f"Next button found, Moving to the next page")
+        time.sleep(1)
+
+        page+=1
+            
+    else: 
+        print(f"No Next button found Reach the end")
+        break
+    
+print(f"Scrapped {len(all_books)} books total")
