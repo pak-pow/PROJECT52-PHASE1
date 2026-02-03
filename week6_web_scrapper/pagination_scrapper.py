@@ -12,7 +12,7 @@ print("Starting scrapping...")
 
 page = 0
 
-while page != 10:
+while page != 20:
     print(f"Scrapping: {base_url}")
     respone = requests.get(base_url)
     soup = BeautifulSoup(respone.text, "html.parser")
