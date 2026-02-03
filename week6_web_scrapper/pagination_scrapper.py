@@ -45,3 +45,11 @@ while page != 10:
         break
     
 print(f"Scrapped {len(all_books)} books total")
+file_name = "complete_library.csv"
+
+with open(file_name, "w", newline="", encoding='utf-8') as f:
+    writer = csv.writer(f)
+    writer.writerow(["Title", "Price", "Stock", "Rating"])
+    writer.writerows(all_books)
+    
+print(f"Saved to {file_name}")
