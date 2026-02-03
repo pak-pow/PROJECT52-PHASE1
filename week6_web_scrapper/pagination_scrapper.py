@@ -13,8 +13,8 @@ print("Starting scrapping...")
 page = 0
 
 while page != 50:
-    print(f"Scrapping: {base_url}")
-    respone = requests.get(base_url)
+    print(f"Scrapping: {current_url}")
+    respone = requests.get(current_url)
     soup = BeautifulSoup(respone.text, "html.parser")
     
     books = soup.select("article.product_pod")
