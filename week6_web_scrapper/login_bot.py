@@ -20,4 +20,9 @@ time.sleep(2)
 
 print("Logging in the web..")
 password_input.send_keys(Keys.RETURN)
+time.sleep(3)
 
+if driver.find_elements(By.LINK_TEXT, "Logout"):
+    print("Access Granted, We are logged in...")
+    user_display = driver.find_element(By.TAG_NAME, "small").text
+    print(f"Site Confirms: {user_display}")
