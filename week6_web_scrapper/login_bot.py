@@ -26,3 +26,9 @@ if driver.find_elements(By.LINK_TEXT, "Logout"):
     print("Access Granted, We are logged in...")
     user_display = driver.find_element(By.TAG_NAME, "small").text
     print(f"Site Confirms: {user_display}")
+    
+else:
+    print("Access Denied Log in failed")
+    
+print("Clossing off")
+driver.quit()
