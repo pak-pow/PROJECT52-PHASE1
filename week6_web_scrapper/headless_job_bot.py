@@ -47,7 +47,7 @@ try:
         writer.writerow(["Role", "Company", "Location", "Apply Link"]) 
         writer.writerows(data)
         
-    print(f"\n✅ SUCCESS. {len(data)} targeted jobs saved to {filename}.")
+    print(f"\n[OK] SUCCESS. {len(data)} targeted jobs saved to {filename}.")
     
 
 except Exception as e:
