@@ -40,6 +40,15 @@ try:
         if "Python" in title:
             print(f"    MATCH: {title} @ {company}")
             data.append([title, company, location, apply_link])
+            
+    filename = "job_hunt.csv"
+    with open(filename, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(["Role", "Company", "Location", "Apply Link"]) 
+        writer.writerows(data)
+        
+    print(f"\n✅ SUCCESS. {len(data)} targeted jobs saved to {filename}.")
+    
 
 except Exception as e:
     print(f"Error: {e}")
