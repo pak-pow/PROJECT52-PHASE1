@@ -24,15 +24,16 @@ toggleButton.addEventListener('click', () => {
         priceStarter.textContent = price.yearly.starter;
         pricePro.textContent = price.yearly.pro;
         priceEnterprise.textContent = price.yearly.enterprise;
+    
     } else {
 
         toggleCircle.classList.remove('translate-x-6');
         toggleButton.classList.remove('bg-purple-600');
         toggleButton.classList.add('bg-gray-600');
 
-        priceStarter.textContent = prices.monthly.starter;
-        pricePro.textContent = prices.monthly.pro;
-        priceEnterprise.textContent = prices.monthly.enterprise;
+        priceStarter.textContent = price.monthly.starter;
+        pricePro.textContent = price.monthly.pro;
+        priceEnterprise.textContent = price.monthly.enterprise;
 
     }
 });
