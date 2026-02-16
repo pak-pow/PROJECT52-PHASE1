@@ -1,6 +1,9 @@
 import pygame #type: ignore
 import math
 import random
+import sys
+
+from pygame.locals import *  # type: ignore
 
 class Main:
     
@@ -10,6 +13,9 @@ class Main:
     RED = (255, 0, 0)
     GREY = (128, 128, 128)
     BACKGROUND_COLOR = BLACK
+    
+    CLOCK = pygame.time.Clock()
+    FPS = 60
 
     def  __init__(self):
         pygame.init()
@@ -21,7 +27,13 @@ class Main:
         pygame.display.set_caption("Sorting Algorithm Visualizer")
     
     def run(self):
-        pass
+        
+        while True:
+            
+            for event in pygame.event.get():
+                if event.type == QUIT: #type: ignore
+                    pygame.quit()
+                    sys.exit()
     
 if __name__ == "__main__":
     app = Main()
