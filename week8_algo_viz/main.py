@@ -5,6 +5,11 @@ import sys
 
 from pygame.locals import * # type: ignore
 
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+
 # 1. THE VISUALIZER CONFIGURATION
 # Handles the math for bar sizes and drawing
 class DrawInformation:
@@ -32,7 +37,7 @@ class DrawInformation:
         self.start_x = self.SIDE_PAD // 2
 
     # Added this method to actually render the bars
-    def draw(self, bg_color):
+    def draw(self, bg_color, color_positions={}):
         self.window.fill(bg_color)
         
         for i, val in enumerate(self.lst):
@@ -40,8 +45,12 @@ class DrawInformation:
             x = self.start_x + i * self.block_width
             y = self.height - (val - self.min_val) * self.block_height
             
+            color = WHITE
+            if i in color_positions:
+                color = color_positions[i]
             # Draw Rectangle: (Surface, Color, (x, y, width, height))
-            pygame.draw.rect(self.window, (255, 255, 255), (x, y, self.block_width, self.height))
+            pygame.draw.rect(self.window, color, (x, y, self.block_width, self.height))
+        pygame.display.update()
 
 # 2. THE MAIN APPLICATION
 # Handles the Game Loop and State
@@ -49,10 +58,6 @@ class Main:
     pygame.init()
     
     # Constants
-    BLACK = (0, 0, 0)
-    WHITE = (255, 255, 255)
-    GREEN = (0, 255, 0)
-    RED = (255, 0, 0)
     BACKGROUND_COLOR = BLACK
     
     DISPLAY_WIDTH = 800
