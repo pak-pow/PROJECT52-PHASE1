@@ -110,6 +110,13 @@ class Main:
         while True:
             clock.tick(60)
             
+            if self.sorting:
+                
+                try:
+                    next(self.sorting_algorithm_generator) # type: ignore
+                except StopIteration:
+                    self.sorting = False
+            
             # A. Event Handling
             for event in pygame.event.get():
                 if event.type == QUIT: #type: ignore
