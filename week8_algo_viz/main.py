@@ -52,20 +52,27 @@ class DrawInformation:
             pygame.draw.rect(self.window, color, (x, y, self.block_width, self.height))
         pygame.display.update()
 
-
+# Bubble sort
 def bubble_sort(draw_info):
     lst = draw_info.lst
     
+    # standard bubble sort loop
     for i in range(len(lst) - 1):
         for j in range(len(lst) - 1 - i):
             num1 = lst[j]
             num2 = lst[j + 1]
             
+            # compare adjacent numbers
             if num1 > num2:
+                
+                # swap them
                 lst[j], lst[j + 1] = lst[j + 1], lst[j]
                 
+                # visualizing: the draw on swap immediently
+                # coloring the two bars being swapped red and green
                 draw_info.draw(BLACK, {j: GREEN, j+1: RED})
                 
+                # pause: yield control back to the main loop
                 yield True
     return lst
 
