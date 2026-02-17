@@ -116,6 +116,9 @@ class Main:
                     next(self.sorting_algorithm_generator) # type: ignore
                 except StopIteration:
                     self.sorting = False
+                    
+            else:
+                self.draw_info.draw(BLACK)
             
             # A. Event Handling
             for event in pygame.event.get():
@@ -128,6 +131,10 @@ class Main:
                     if event.key == K_r: #type: ignore
                         self.lst = self.generate_starting_list()
                         self.draw_info.set_list(self.lst)
+                        
+                    if event.key == K_SPACE and not self.sorting: #type: ignore
+                        self.sorting = True
+                        self.sorting_algorithm_generator = bubble_sort(self.draw_info)
 
             # B. Draw Routine
             self.draw_info.draw(self.BACKGROUND_COLOR)
