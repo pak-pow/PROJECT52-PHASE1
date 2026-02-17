@@ -52,6 +52,23 @@ class DrawInformation:
             pygame.draw.rect(self.window, color, (x, y, self.block_width, self.height))
         pygame.display.update()
 
+
+def bubble_sort(draw_info):
+    lst = draw_info.lst
+    
+    for i in range(len(lst) - 1):
+        for j in range(len(lst) - 1 - i):
+            num1 = lst[j]
+            num2 = lst[j + 1]
+            
+            if num1 > num2:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+                
+                draw_info.draw(BLACK, {j: GREEN, j+1: RED})
+                
+                yield True
+    return lst
+
 # 2. THE MAIN APPLICATION
 # Handles the Game Loop and State
 class Main:
