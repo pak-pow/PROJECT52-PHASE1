@@ -96,6 +96,10 @@ class Main:
         # Initialize the DrawInfo helper
         self.draw_info = DrawInformation(self.DISPLAY_WIDTH, self.DISPLAY_HEIGHT, self.lst)
         
+        # sorting state variables
+        self.sorting = False
+        self.sorting_algorithm_generator = None
+        
     def generate_starting_list(self):
         # Generate 50 random numbers between 0 and 100
         return [random.randint(0, 100) for _ in range(50)]
