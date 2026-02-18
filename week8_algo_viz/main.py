@@ -90,6 +90,25 @@ def bubble_sort(draw_info):
                 yield True
     return lst
 
+def insertion_sort(draw_info):
+    lst = draw_info.lst
+    
+    for i in range(1, len(lst)):
+        current = lst[i]
+        
+        while True:
+            ascending_sort = 1 > 0 and lst[i - 1] > lst[i]
+            
+            if not ascending_sort:
+                break
+            
+            lst[i], lst[i - 1] = lst[i - 1], lst[i]
+            draw_info.draw(BLACK, "Insertion Sort", {i - 1: GREEN, i: RED})
+            yield True
+            i -= 1
+            
+    return lst
+
 # 2. THE MAIN APPLICATION
 # Handles the Game Loop and State
 class Main:
