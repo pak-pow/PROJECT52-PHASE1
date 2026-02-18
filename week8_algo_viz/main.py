@@ -26,8 +26,8 @@ class DrawInformation:
         self.set_list(lst)
         
         # font setup
-        self.font = pygame.font.SysFont('comicsans', 30)
-        self.large_font = pygame.font.SysFont('comicsans', 40)
+        self.font = pygame.font.SysFont('Ariel', 30)
+        self.large_font = pygame.font.SysFont('Ariel', 40)
 
     def set_list(self, lst):
         self.lst = lst
@@ -84,7 +84,7 @@ def bubble_sort(draw_info):
                 
                 # visualizing: the draw on swap immediently
                 # coloring the two bars being swapped red and green
-                draw_info.draw(BLACK, {j: GREEN, j+1: RED})
+                draw_info.draw(BLACK, "Bubble Sort", {j: GREEN, j+1: RED})
                 
                 # pause: yield control back to the main loop
                 yield True
@@ -97,7 +97,7 @@ def insertion_sort(draw_info):
         current = lst[i]
         
         while True:
-            ascending_sort = 1 > 0 and lst[i - 1] > lst[i]
+            ascending_sort = i > 0 and lst[i - 1] > lst[i]
             
             if not ascending_sort:
                 break
@@ -131,6 +131,8 @@ class Main:
         
         # sorting state variables
         self.sorting = False
+        self.sorting_algorithm = bubble_sort
+        self.sorting_algo_name = "Bubble Sort"
         self.sorting_algorithm_generator = None
         
     def generate_starting_list(self):
@@ -151,7 +153,7 @@ class Main:
                     self.sorting = False
                     
             else:
-                self.draw_info.draw(BLACK)
+                self.draw_info.draw(BLACK, self.sorting_algo_name)
             
             # A. Event Handling
             for event in pygame.event.get():
@@ -164,14 +166,21 @@ class Main:
                     if event.key == K_r: #type: ignore
                         self.lst = self.generate_starting_list()
                         self.draw_info.set_list(self.lst)
+                        self.sorting = False
                         
                     if event.key == K_SPACE and not self.sorting: #type: ignore
                         self.sorting = True
-                        self.sorting_algorithm_generator = bubble_sort(self.draw_info)
-
-            # B. Draw Routine
-            self.draw_info.draw(self.BACKGROUND_COLOR)
-            pygame.display.update()
+                        self.sorting_algorithm_generator = self.sorting_algorithm(self.draw_info)
+                        
+                    # I = Switch to Insertion Sort
+                    elif event.key == K_i and not self.sorting: #type: ignore
+                        self.sorting_algorithm = insertion_sort
+                        self.sorting_algo_name = "Insertion Sort"
+                    
+                    # B = Switch to Bubble Sort
+                    elif event.key == K_b and not self.sorting: #type: ignore
+                        self.sorting_algorithm = bubble_sort
+                        self.sorting_algo_name = "Bubble Sort"
 
 if __name__ == "__main__":
     app = Main()
