@@ -9,6 +9,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
+BLUE = (0, 0, 255)
 
 # 1. THE VISUALIZER CONFIGURATION
 # Handles the math for bar sizes and drawing
@@ -23,6 +24,10 @@ class DrawInformation:
         # Grab the active window
         self.window = pygame.display.get_surface()
         self.set_list(lst)
+        
+        # font setup
+        self.font = pygame.font.SysFont('comicsans', 30)
+        self.large_font = pygame.font.SysFont('comicsans', 40)
 
     def set_list(self, lst):
         self.lst = lst
