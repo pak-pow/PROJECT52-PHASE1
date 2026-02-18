@@ -42,8 +42,17 @@ class DrawInformation:
         self.start_x = self.SIDE_PAD // 2
 
     # Added this method to actually render the bars
-    def draw(self, bg_color, color_positions={}):
+    def draw(self, bg_color, algo_name, color_positions={}):
         self.window.fill(bg_color)
+        
+        controls = "R - Reset | SPACE - Start Sorting"
+        sorting_text = f"{algo_name} | 'I' - Insertion | 'B' - Bubble"
+        
+        controls_surface = self.font.render(controls, 1, WHITE)
+        sorting_surface = self.large_font.render(sorting_text, 1, BLUE)
+        
+        self.window.blit(controls_surface, (self.width/2 - controls_surface.get_width()/2, 45))
+        self.window.blit(sorting_surface, (self.width/2 - sorting_surface.get_width()/2, 5)) 
         
         for i, val in enumerate(self.lst):
             # Math to place bars correctly
