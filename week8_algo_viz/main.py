@@ -109,6 +109,9 @@ def insertion_sort(draw_info):
             
     return lst
 
+def heap_sort(draw_info):
+    pass
+
 # 2. THE MAIN APPLICATION
 # Handles the Game Loop and State
 class Main:
@@ -137,7 +140,7 @@ class Main:
         
     def generate_starting_list(self):
         # Generate 50 random numbers between 0 and 100
-        return [random.randint(0, 100) for _ in range(50)]
+        return [random.randint(0, 200) for _ in range(100)]
 
     def run(self):
         clock = pygame.time.Clock()
