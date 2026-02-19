@@ -118,6 +118,25 @@ def insertion_sort(draw_info):
             
     return lst
 
+def selection_sort(draw_info):
+    lst = draw_info.lst
+    
+    for i in range(len(lst) - 1):
+        min_idx = i
+        
+        # Scan the rest of the list to find the absolute minimum
+        for j in range(i + 1, len(lst)):
+            if lst[j] < lst[min_idx]:
+                min_idx = j
+                
+        if min_idx != i:
+            lst[i], lst[min_idx] = lst[min_idx], lst[i]
+            # Visualize the swap (Green = Target, Red = Mover)
+            draw_info.draw(BLACK, "Selection Sort", {i: GREEN, min_idx: RED})
+            yield True
+            
+    return lst
+
 def heap_sort(draw_info):
     pass
 
