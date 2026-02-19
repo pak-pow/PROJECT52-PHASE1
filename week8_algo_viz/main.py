@@ -67,7 +67,7 @@ class DrawInformation:
             x = self.start_x + i * self.block_width
             y = self.height - (val - self.min_val) * self.block_height
             
-            color = self.GRADIENTS[i % 3] 
+            color = self.GRADIENTS[i % 3] #type: ignore
             
             if i in color_positions:
                 color = color_positions[i]
@@ -212,6 +212,10 @@ class Main:
                     elif event.key == K_b and not self.sorting: #type: ignore
                         self.sorting_algorithm = bubble_sort
                         self.sorting_algo_name = "Bubble Sort"
+                        
+                    elif event.key == K_s and not self.sorting: #type: ignore
+                        self.sorting_algorithm = selection_sort
+                        self.sorting_algo_name = "Selection Sort"
 
 if __name__ == "__main__":
     app = Main()
