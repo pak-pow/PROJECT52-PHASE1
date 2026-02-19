@@ -18,11 +18,11 @@ class DrawInformation:
     TOP_PAD = 150
     
     # added new shades of grays
-    GRADIENTS = {
+    GRADIENTS = [
         (128, 128, 128),
         (160, 160, 160),
         (192, 192, 192)
-    }
+    ]
 
     def __init__(self, width, height, lst):
         self.width = width
@@ -54,7 +54,7 @@ class DrawInformation:
         
         # added selection sort to the HUD
         controls = "R - Reset | SPACE - Start Sorting"
-        sorting_text = f"{algo_name} | I: - Insertion | B: - Bubble | S:  Selection"
+        sorting_text = f"{algo_name} | I: Insertion | B: Bubble | S:  Selection"
         
         controls_surface = self.font.render(controls, 1, WHITE)
         sorting_surface = self.large_font.render(sorting_text, 1, BLUE)
