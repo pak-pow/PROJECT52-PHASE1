@@ -80,7 +80,7 @@ class DrawInformation:
         pygame.display.update()
 
 # Bubble sort
-def bubble_sort(draw_info):
+def bubble_sort(draw_info, ascending = True):
     lst = draw_info.lst
     
     # standard bubble sort loop
@@ -90,53 +90,60 @@ def bubble_sort(draw_info):
             num2 = lst[j + 1]
             
             # compare adjacent numbers
-            if num1 > num2:
+            if (ascending and num1 > num2) or (not ascending and num1 < num2):
                 
                 # swap them
                 lst[j], lst[j + 1] = lst[j + 1], lst[j]
                 
                 # visualizing: the draw on swap immediently
                 # coloring the two bars being swapped red and green
-                draw_info.draw(BLACK, "Bubble Sort", {j: GREEN, j+1: RED})
+                draw_info.draw(BLACK, "Bubble Sort", ascending, {j: GREEN, j+1: RED})
                 
                 # pause: yield control back to the main loop
                 yield True
     return lst
 
-def insertion_sort(draw_info):
+def insertion_sort(draw_info, ascending=True):
     lst = draw_info.lst
     
     for i in range(1, len(lst)):
         current = lst[i]
-        
+    
         while True:
-            ascending_sort = i > 0 and lst[i - 1] > lst[i]
+            if i == 0:
+                break
             
-            if not ascending_sort:
+            if ascending and lst[i - 1] > lst[i]:
+                swap = True
+            elif not ascending and lst[i - 1] < lst[i]:
+                swap = True
+            else:
+                swap = False
+                
+            if not swap:
                 break
             
             lst[i], lst[i - 1] = lst[i - 1], lst[i]
-            draw_info.draw(BLACK, "Insertion Sort", {i - 1: GREEN, i: RED})
+            draw_info.draw(BLACK, "Insertion Sort", ascending, {i - 1: GREEN, i: RED})
             yield True
             i -= 1
             
     return lst
 
-def selection_sort(draw_info):
+def selection_sort(draw_info, ascending=True):
     lst = draw_info.lst
-    
+
     for i in range(len(lst) - 1):
-        min_idx = i
-        
-        # Scan the rest of the list to find the absolute minimum
+        target_idx = i
         for j in range(i + 1, len(lst)):
-            if lst[j] < lst[min_idx]:
-                min_idx = j
+            
+            # The Magic Flip
+            if (ascending and lst[j] < lst[target_idx]) or (not ascending and lst[j] > lst[target_idx]):
+                target_idx = j
                 
-        if min_idx != i:
-            lst[i], lst[min_idx] = lst[min_idx], lst[i]
-            # Visualize the swap (Green = Target, Red = Mover)
-            draw_info.draw(BLACK, "Selection Sort", {i: GREEN, min_idx: RED})
+        if target_idx != i:
+            lst[i], lst[target_idx] = lst[target_idx], lst[i]
+            draw_info.draw(BLACK, "Selection Sort", ascending, {i: GREEN, target_idx: RED})
             yield True
             
     return lst
@@ -206,7 +213,7 @@ class Main:
                         
                     if event.key == K_SPACE and not self.sorting: #type: ignore
                         self.sorting = True
-                        self.sorting_algorithm_generator = self.sorting_algorithm(self.draw_info)
+                        self.sorting_algorithm_generator = self.sorting_algorithm(self.draw_info, self.ascending)
                         
                     # NEW: A = Ascending
                     elif event.key == K_a and not self.sorting: #type: ignore
