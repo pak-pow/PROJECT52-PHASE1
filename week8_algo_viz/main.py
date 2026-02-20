@@ -166,6 +166,7 @@ class Main:
         
         # sorting state variables
         self.sorting = False
+        self.ascending = True 
         self.sorting_algorithm = bubble_sort
         self.sorting_algo_name = "Bubble Sort"
         self.sorting_algorithm_generator = None
@@ -188,7 +189,7 @@ class Main:
                     self.sorting = False
                     
             else:
-                self.draw_info.draw(BLACK, self.sorting_algo_name)
+                self.draw_info.draw(BLACK, self.sorting_algo_name, self.ascending)
             
             # A. Event Handling
             for event in pygame.event.get():
@@ -206,6 +207,14 @@ class Main:
                     if event.key == K_SPACE and not self.sorting: #type: ignore
                         self.sorting = True
                         self.sorting_algorithm_generator = self.sorting_algorithm(self.draw_info)
+                        
+                    # NEW: A = Ascending
+                    elif event.key == K_a and not self.sorting: #type: ignore
+                        self.ascending = True
+                        
+                    # NEW: D = Descending
+                    elif event.key == K_d and not self.sorting: #type: ignore
+                        self.ascending = False
                         
                     # I = Switch to Insertion Sort
                     elif event.key == K_i and not self.sorting: #type: ignore
