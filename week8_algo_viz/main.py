@@ -49,18 +49,22 @@ class DrawInformation:
         self.start_x = self.SIDE_PAD // 2
 
     # Added this method to actually render the bars
-    def draw(self, bg_color, algo_name, color_positions={}):
+    def draw(self, bg_color, algo_name, ascending, color_positions={}):
         self.window.fill(bg_color)
         
         # added selection sort to the HUD
-        controls = "R - Reset | SPACE - Start Sorting"
-        sorting_text = f"{algo_name} | I: Insertion | B: Bubble | S:  Selection"
+        direction = "Ascending" if ascending else "Descending"
+        title_text = f"{algo_name} - {direction}"
+        controls_1 = "R: Reset | SPACE: Start | A: Ascending | D: Descending"
+        controls_2 = "I: Insertion | B: Bubble | S: Selection"
         
-        controls_surface = self.font.render(controls, 1, WHITE)
-        sorting_surface = self.large_font.render(sorting_text, 1, BLUE)
+        title_surface = self.large_font.render(title_text, 1, BLUE)
+        controls_1_surface = self.font.render(controls_1, 1, WHITE)
+        controls_2_surface = self.font.render(controls_2, 1, WHITE)
         
-        self.window.blit(controls_surface, (self.width/2 - controls_surface.get_width()/2, 45))
-        self.window.blit(sorting_surface, (self.width/2 - sorting_surface.get_width()/2, 5)) 
+        self.window.blit(title_surface, (self.width/2 - title_surface.get_width()/2, 5))
+        self.window.blit(controls_1_surface, (self.width/2 - controls_1_surface.get_width()/2, 45))
+        self.window.blit(controls_2_surface, (self.width/2 - controls_2_surface.get_width()/2, 75))
         
         for i, val in enumerate(self.lst):
             # Math to place bars correctly
