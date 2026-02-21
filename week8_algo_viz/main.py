@@ -157,7 +157,7 @@ def heapify(draw_info, n, i, ascending):
     if ascending:
         if left < n and lst[left] > lst[target]:
             target = left
-        if right < n and lst[right] < lst[target]:
+        if right < n and lst[right] > lst[target]:
             target = right
         
     else:
