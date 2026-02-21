@@ -276,6 +276,10 @@ class Main:
                     elif event.key == K_s and not self.sorting: #type: ignore
                         self.sorting_algorithm = selection_sort
                         self.sorting_algo_name = "Selection Sort"
+                        
+                    elif event.key == K_h and not self.sorting: #type: ignore
+                        self.sorting_algorithm = heap_sort
+                        self.sorting_algo_name = "Heap Sort"
 
 if __name__ == "__main__":
     app = Main()
