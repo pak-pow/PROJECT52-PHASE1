@@ -174,8 +174,22 @@ def heapify(draw_info, n, i, ascending):
         yield from heapify(draw_info, n, target, ascending)
     
 
-def heap_sort(draw_info):
-    pass
+def heap_sort(draw_info, ascending = True):
+    lst = draw_info.lst
+    n = len(lst)
+    
+    for i in range(n // 2 - 1, -1, -1): 
+        yield from heapify(draw_info, n,i,ascending)
+        
+    for i in range(n - 1, 0, -1):
+        lst[i], lst[0] = lst[0], lst[i]
+        draw_info.draw(BLACK, "Heap Sort", ascending, {i: GREEN, 0: RED})
+        yield True
+        
+        yield from heapify(draw_info, i, 0, ascending)
+        
+    return lst
+    
 
 # 2. THE MAIN APPLICATION
 # Handles the Game Loop and State
