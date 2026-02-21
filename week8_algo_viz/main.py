@@ -56,7 +56,7 @@ class DrawInformation:
         direction = "Ascending" if ascending else "Descending"
         title_text = f"{algo_name} - {direction}"
         controls_1 = "R: Reset | SPACE: Start | A: Ascending | D: Descending"
-        controls_2 = "I: Insertion | B: Bubble | S: Selection"
+        controls_2 = "I: Insertion | B: Bubble | S: Selection | H: Heap"
         
         title_surface = self.large_font.render(title_text, 1, BLUE)
         controls_1_surface = self.font.render(controls_1, 1, WHITE)
@@ -147,6 +147,32 @@ def selection_sort(draw_info, ascending=True):
             yield True
             
     return lst
+
+def heapify(draw_info, n, i, ascending):
+    lst = draw_info.lst
+    target = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    
+    if ascending:
+        if left < n and lst[left] > lst[target]:
+            target = left
+        if right < n and lst[right] < lst[target]:
+            target = right
+        
+    else:
+        if left < n and lst[left] < lst[target]:
+            target = left
+        if right < n and lst[right] < lst[target]:
+            target = right
+            
+    if target != i:
+        lst[i], lst[target] = lst[target], lst[i]
+        draw_info.draw(BLACK, "Heap Sort", ascending, {i: GREEN, target: RED})
+        yield True
+        
+        yield from heapify(draw_info, n, target, ascending)
+    
 
 def heap_sort(draw_info):
     pass
