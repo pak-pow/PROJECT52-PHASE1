@@ -2,12 +2,25 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Form Validation Library</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="container">
+            <h2>Create An Account</h2>
+
+            <form id="register-form">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" data-rules="required|min:3">
+                    <small class="error-msg">Error message goes here</small>
+                </div>
+                
+            </form>
+
+        </div>
         <script src="validator.js" async defer></script>
     </body>
 </html>
