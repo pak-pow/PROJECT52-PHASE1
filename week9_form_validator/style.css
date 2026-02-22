@@ -26,3 +26,33 @@ h2 {
     margin-bottom: 20px;
     color: #333;
 }
+
+.form-control {
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-control input:focus{
+    outline: none;
+    border-color: #007bff;
+}
+
+.form-control.error input{
+    border-color: #e74c3c;
+}
