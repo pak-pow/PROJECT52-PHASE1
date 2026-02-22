@@ -12,3 +12,17 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 400px;
+    padding: 40px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
