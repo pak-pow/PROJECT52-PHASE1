@@ -17,9 +17,20 @@
                     <input type="text" id="username" data-rules="required|min:3">
                     <small class="error-msg">Error message goes here</small>
                 </div>
-                
-            </form>
 
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" data-rules="required|email">
+                    <small class="error-msg">Error message goes here</small>
+                </div>
+
+                <div class="form-control">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" data-rules="required|min:8">
+                    <small class="error-msg">Error message goes here</small>
+                </div>
+
+            </form>
         </div>
         <script src="validator.js" async defer></script>
     </body>
