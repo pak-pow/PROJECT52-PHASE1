@@ -14,6 +14,9 @@ class Validator {
     }
 
     validateForm(){
-        
+        console.log("Validation Starter!");
+        console.log("Ready to process inputs")
     }
 }
+
+const signupValidator = new Validator('register-form')
