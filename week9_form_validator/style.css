@@ -56,3 +56,29 @@ h2 {
 .form-control.error input{
     border-color: #e74c3c;
 }
+
+.form-control .error-msg {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.form-control.error .error-msg {
+    visibility: visible;
+}
+
+button{
+    cursor: pointer;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    font-weight: bold;
+}
