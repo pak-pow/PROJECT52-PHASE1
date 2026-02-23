@@ -25,13 +25,22 @@ class Validator {
         // finding every input inside of THIS form
         const inputs = this.form.querySelectorAll("input[data-rules]");
 
+        // looping all the inputs
         inputs.forEach((input) => {
 
-            const fieldName = input.id;
-            const fieldValue = input.value.trim();
-            const ruleString = input.getAttribute('data-rules')
-        })
-        console.log("Ready to process inputs")
+            // extracting the data
+            const fieldName = input.id;                          // names
+            const fieldValue = input.value.trim();               // what the user typed
+            const ruleString = input.getAttribute('data-rules');
+
+            // chopping the text into the a list or a array
+            const rulesArray = ruleString.split('|');
+
+            console.log(`Checking Field [${fieldName}]`);
+            console.log(` - Value Typed [${fieldValue}]`);
+            console.log(` - Rules to Run:`, rulesArray);
+        });
+        console.log("\n----------------")
     }
 }
 
