@@ -1,5 +1,7 @@
 class Validator {
     constructor(formId){
+
+        // find the form in the html
         this.form = document.getElementById(formId);
 
         if (!this.form){
@@ -8,7 +10,11 @@ class Validator {
         }
 
         this.form.addEventListener('submit', (event) => {
+            
+            // Preventing the page from refreshing the page
             event.preventDefault();
+
+            // running the class
             this.validateForm();
         });
     }
