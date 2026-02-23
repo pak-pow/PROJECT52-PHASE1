@@ -21,6 +21,16 @@ class Validator {
 
     validateForm(){
         console.log("Validation Starter!");
+
+        // finding every input inside of THIS form
+        const inputs = this.form.querySelectorAll("input[data-rules]");
+
+        inputs.forEach((input) => {
+
+            const fieldName = input.id;
+            const fieldValue = input.value.trim();
+            const ruleString = input.getAttribute('data-rules')
+        })
         console.log("Ready to process inputs")
     }
 }
