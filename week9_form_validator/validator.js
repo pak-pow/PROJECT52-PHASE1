@@ -41,7 +41,21 @@ class Validator {
 
                 let ruleName = rule;
                 let ruleParam = null;
-            })
+
+                if (rule.includes(':')) {
+                    const parts = rule.split(":");
+                    ruleName = parts[0];
+                    ruleParam = parts[1];
+                }
+
+                switch(ruleName){
+
+                    case 'required':
+                        if (fieldName === '');
+                        console.log(`X [${fieldName}]: This field is required.`);
+                        isFormValid = false;
+                }
+            });
 
             console.log(`Checking Field [${fieldName}]`);
             console.log(` - Value Typed [${fieldValue}]`);
