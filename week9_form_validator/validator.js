@@ -20,10 +20,14 @@ class Validator {
     }
 
     validateForm(){
+
+        // Cleaning the form every time the submit button is hit
+        console.clear()
         console.log("Validation Starter!");
 
         // finding every input inside of THIS form
         const inputs = this.form.querySelectorAll("input[data-rules]");
+        let isFormValid = true;
 
         // looping all the inputs
         inputs.forEach((input) => {
@@ -31,10 +35,13 @@ class Validator {
             // extracting the data
             const fieldName = input.id;                          // names
             const fieldValue = input.value.trim();               // what the user typed
-            const ruleString = input.getAttribute('data-rules');
+            const rulesArray = input.getAttribute('data-rules').split('|');
 
-            // chopping the text into the a list or a array
-            const rulesArray = ruleString.split('|');
+            rulesArray.forEach((rule) => {
+
+                let ruleName = rule;
+                let ruleParam = null;
+            })
 
             console.log(`Checking Field [${fieldName}]`);
             console.log(` - Value Typed [${fieldValue}]`);
