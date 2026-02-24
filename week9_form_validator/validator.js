@@ -74,12 +74,14 @@ class Validator {
                         break;
                 }
             });
-
-            console.log(`Checking Field [${fieldName}]`);
-            console.log(` - Value Typed [${fieldValue}]`);
-            console.log(` - Rules to Run:`, rulesArray);
         });
         console.log("\n----------------")
+
+        if(isFormValid){
+            console.log("SUCCESS: All Fields Are Valid!");
+        } else {
+            console.log("WARNING: Forms Contains Error");
+        };
     }
 }
 
