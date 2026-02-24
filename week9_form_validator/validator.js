@@ -51,9 +51,27 @@ class Validator {
                 switch(ruleName){
 
                     case 'required':
-                        if (fieldName === '');
-                        console.log(`X [${fieldName}]: This field is required.`);
-                        isFormValid = false;
+                        if (fieldValue === ''){;
+                            console.error(`X [${fieldName}]: This field is required.`);
+                            isFormValid = false;
+                        }
+
+                        break;
+
+                    case 'min':
+                        if (fieldValue !== '' && fieldValue.length < parseInt(ruleParam)) {
+                            console.error(`X [${fieldName}]: Must be at least ${ruleParam} characters.`);
+                            isFormValid = false;
+                        }
+                        break;
+
+                    case 'email':
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (fieldValue !== '' && !emailRegex.test(fieldValue)) {
+                            console.error(`❌ [${fieldName}]: Invalid email format.`);
+                            isFormValid = false;
+                        }
+                        break;
                 }
             });
 
