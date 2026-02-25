@@ -19,6 +19,15 @@ class Validator {
         });
     }
 
+    showError(input, message){
+
+        const formControl = input.parentElement;
+        const small = formControl.querySelectorAll('small')
+        formControl.className = 'form-control error';
+        small.innerText = message;
+        
+    }
+
     validateForm(){
 
         // Cleaning the form every time the submit button is hit
