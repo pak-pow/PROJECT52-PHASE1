@@ -25,7 +25,16 @@ class Validator {
         const small = formControl.querySelectorAll('small')
         formControl.className = 'form-control error';
         small.innerText = message;
-        
+
+    }
+
+    showSuccess(input){
+        const formControl = input.parentElement;
+        formControl.className = 'form-control';
+    }
+    
+    getFieldName(input) {
+        return input.id.charAt(0).toUpperCase() + input.id.slice(1);
     }
 
     validateForm(){
