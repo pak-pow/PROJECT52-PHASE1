@@ -54,8 +54,14 @@ class Validator {
             const fieldName = input.id;                          // names
             const fieldValue = input.value.trim();               // what the user typed
             const rulesArray = input.getAttribute('data-rules').split('|');
+            const prettyName = this.getFieldName(input);
 
-            rulesArray.forEach((rule) => {
+            this.showSuccess(input);
+            let hasError = false
+
+            for (let rule of rulesArray){
+
+                if (hasError) break;
 
                 let ruleName = rule;
                 let ruleParam = null;
@@ -91,7 +97,7 @@ class Validator {
                         }
                         break;
                 }
-            });
+            };
         });
         console.log("\n----------------")
 
