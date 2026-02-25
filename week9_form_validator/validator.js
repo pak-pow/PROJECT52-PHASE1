@@ -22,7 +22,7 @@ class Validator {
     showError(input, message){
 
         const formControl = input.parentElement;
-        const small = formControl.querySelectorAll('small')
+        const small = formControl.querySelector('small')
         formControl.className = 'form-control error';
         small.innerText = message;
 
@@ -76,7 +76,8 @@ class Validator {
 
                     case 'required':
                         if (fieldValue === ''){;
-                            console.error(`X [${fieldName}]: This field is required.`);
+                            this.showError(input, `${prettyName} is required`);
+                            hasError = true;
                             isFormValid = false;
                         }
 
@@ -84,7 +85,8 @@ class Validator {
 
                     case 'min':
                         if (fieldValue !== '' && fieldValue.length < parseInt(ruleParam)) {
-                            console.error(`X [${fieldName}]: Must be at least ${ruleParam} characters.`);
+                            this.showError(input, `${prettyName} must be at least ${ruleParam} characters`);
+                            hasError = true;
                             isFormValid = false;
                         }
                         break;
@@ -92,7 +94,8 @@ class Validator {
                     case 'email':
                         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                         if (fieldValue !== '' && !emailRegex.test(fieldValue)) {
-                            console.error(`❌ [${fieldName}]: Invalid email format.`);
+                            this.showError(input, `${prettyName} is not a valid email`);
+                            hasError = true;
                             isFormValid = false;
                         }
                         break;
