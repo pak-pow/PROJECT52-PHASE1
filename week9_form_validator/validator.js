@@ -19,7 +19,7 @@ class Validator {
             event.preventDefault();
 
             // running the class
-            this.validateForm();
+            this.validateAll();
         });
 
         // listen for typing in real-time
