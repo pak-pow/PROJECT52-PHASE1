@@ -50,78 +50,68 @@ class Validator {
         return input.id.charAt(0).toUpperCase() + input.id.slice(1);
     }
 
-    validateForm(){
+    validateField(input) {
+        const fieldValue = input.value.trim();
+        const rulesArray = input.getAttribute('data-rules').split('|');
+        const prettyName = this.getFieldName(input);
 
-        // Cleaning the form every time the submit button is hit
-        console.clear()
-        console.log("Validation Starter!");
+        this.showSuccess(input); // Reset first
+        let hasError = false;
 
-        // finding every input inside of THIS form
-        const inputs = this.form.querySelectorAll("input[data-rules]");
-        let isFormValid = true;
+        for (let rule of rulesArray) {
+            if (hasError) break; 
 
-        // looping all the inputs
-        inputs.forEach((input) => {
+            let ruleName = rule;
+            let ruleParam = null;
 
-            // extracting the data
-            const fieldName = input.id;                          // names
-            const fieldValue = input.value.trim();               // what the user typed
-            const rulesArray = input.getAttribute('data-rules').split('|');
-            const prettyName = this.getFieldName(input);
+            if (rule.includes(':')) {
+                const parts = rule.split(':');
+                ruleName = parts[0];
+                ruleParam = parts[1];
+            }
 
-            this.showSuccess(input);
-            let hasError = false
+            switch (ruleName) {
+                case 'required':
+                    if (fieldValue === '') {
+                        this.showError(input, `${prettyName} is required`);
+                        hasError = true;
+                    }
+                    break;
+                    
+                case 'min':
+                    if (fieldValue !== '' && fieldValue.length < parseInt(ruleParam)) {
+                        this.showError(input, `${prettyName} must be at least ${ruleParam} characters`);
+                        hasError = true;
+                    }
+                    break;
+                    
+                case 'email':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (fieldValue !== '' && !emailRegex.test(fieldValue)) {
+                        this.showError(input, `${prettyName} is not a valid email`);
+                        hasError = true;
+                    }
+                    break;
+            }
+        }
+        
+        return !hasError; 
+    }
+    validateAll() {
+        let isFormValid = true; 
 
-            for (let rule of rulesArray){
-
-                if (hasError) break;
-
-                let ruleName = rule;
-                let ruleParam = null;
-
-                if (rule.includes(':')) {
-                    const parts = rule.split(":");
-                    ruleName = parts[0];
-                    ruleParam = parts[1];
-                }
-
-                switch(ruleName){
-
-                    case 'required':
-                        if (fieldValue === ''){;
-                            this.showError(input, `${prettyName} is required`);
-                            hasError = true;
-                            isFormValid = false;
-                        }
-
-                        break;
-
-                    case 'min':
-                        if (fieldValue !== '' && fieldValue.length < parseInt(ruleParam)) {
-                            this.showError(input, `${prettyName} must be at least ${ruleParam} characters`);
-                            hasError = true;
-                            isFormValid = false;
-                        }
-                        break;
-
-                    case 'email':
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (fieldValue !== '' && !emailRegex.test(fieldValue)) {
-                            this.showError(input, `${prettyName} is not a valid email`);
-                            hasError = true;
-                            isFormValid = false;
-                        }
-                        break;
-                }
-            };
+        this.inputs.forEach((input) => {
+            // Check each field. If even one fails, the whole form is invalid.
+            const isFieldValid = this.validateField(input);
+            if (!isFieldValid) {
+                isFormValid = false;
+            }
         });
-        console.log("\n----------------")
 
-        if(isFormValid){
-            console.log("SUCCESS: All Fields Are Valid!");
-        } else {
-            console.log("WARNING: Forms Contains Error");
-        };
+        if (isFormValid) {
+            console.log("✅ SUCCESS: Sending data to server...");
+            // this.form.submit();
+        }
     }
 }
 
