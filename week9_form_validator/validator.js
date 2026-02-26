@@ -9,6 +9,10 @@ class Validator {
             return;
         }
 
+        // Finds all input
+        this.inputs = this.form.querySelectorAll('input[data-rules]');
+        
+        // Listen for the submit form
         this.form.addEventListener('submit', (event) => {
             
             // Preventing the page from refreshing the page
@@ -16,6 +20,15 @@ class Validator {
 
             // running the class
             this.validateForm();
+        });
+
+        // listen for typing in real-time
+        this.inputs.forEach((input) => {
+            input.addEventListener('input', () => {
+                
+                // checking just this one field as they type
+                this.validateField(input);
+            });
         });
     }
 
