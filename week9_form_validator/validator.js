@@ -94,8 +94,14 @@ class Validator {
                     break;
 
                 case 'match':
+
+                    // finding the target field (e.g., the password box)
                     const targetField = document.getElementById(ruleParam);
+
+                    // checking if the target field exist, and if the values match
                     if (targetField && fieldValue !== targetField.value){
+
+                        // display error if it doesnt match
                         const targetName = this.getFieldName(targetField);
                         this.showError(input, `${prettyName} must match ${targetName}`);
                         hasError = true;
