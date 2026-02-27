@@ -92,6 +92,15 @@ class Validator {
                         hasError = true;
                     }
                     break;
+
+                case 'match':
+                    const targetField = document.getElementById(ruleParam);
+                    if (targetField && fieldValue !== targetField.value){
+                        const targetName = this.getFieldName(targetField);
+                        this.showError(input, `${prettyName} must match ${targetName}`);
+                        hasError = true;
+                    }
+                    break;
             }
         }
         
