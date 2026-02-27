@@ -29,6 +29,13 @@
                     <input type="password" id="password" data-rules="required|min:8">
                     <small class="error-msg">Error message goes here</small>
                 </div>
+
+                <div class="form-control">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" data-rules="required|match:password">
+                    <small class="error-msg">Error message geos here</small>
+                </div>
+                
                 <button type="submit">Sign Up</button>
             </form>
         </div>
