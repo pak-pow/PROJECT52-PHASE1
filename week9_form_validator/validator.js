@@ -43,7 +43,10 @@ class Validator {
 
     showSuccess(input){
         const formControl = input.parentElement;
-        formControl.className = 'form-control';
+
+        // OLD: formControl.className = 'form-control';
+        // NEW: Add the success class!
+        formControl.className = 'form-control success';
     }
     
     getFieldName(input) {
