@@ -82,3 +82,8 @@ button{
     border-radius: 4px;
     font-weight: bold;
 }
+
+.form-control.success input {
+    border-color: #2ecc71;
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.3);
+}
