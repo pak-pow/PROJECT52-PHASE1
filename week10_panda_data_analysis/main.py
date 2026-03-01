@@ -12,7 +12,5 @@ def load_data():
     print(f"\nTotal rows: {len(file)}")
     print(f"Columns found: {list(file.columns)}")
     
-    pass
-
 if __name__ == "__main__":
     load_data()
