@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import sys
 
 def load_data():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -16,6 +17,10 @@ def print_statistic(df):
     # calculating total revenue
     total_revenue = df['Revenue_USD'].sum()
     print(f"Total Revenue: ${total_revenue:,.2f}")
+    
+    # calculate the average of downloads
+    avg_download = df['Downloads'].mean()
+    print(f"Average Daily Downloads: {avg_download:.0f}")
 
 if __name__ == "__main__":
     app_df = load_data()
