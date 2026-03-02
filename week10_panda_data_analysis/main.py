@@ -21,6 +21,15 @@ def print_statistic(df):
     # calculate the average of downloads
     avg_download = df['Downloads'].mean()
     print(f"Average Daily Downloads: {avg_download:.0f}")
+    
+    # find the highest peak of active user
+    max_user = df['Active_Users'].max()
+    print(f"Peak Active Users: {max_user}")
+    
+    # calculate Total Crash Reports
+    total_crashes = df['Crash_Reports'].sum()
+    print(f"Total App Crashes: {total_crashes}")
+    print("-" * 40)
 
 if __name__ == "__main__":
     app_df = load_data()
