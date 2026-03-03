@@ -31,6 +31,9 @@ def print_statistic(df):
     print(f"Total App Crashes: {total_crashes}")
     print("-" * 40)
 
+def filter_data(df):
+    pass
+
 if __name__ == "__main__":
     app_df = load_data()
     print_statistic(app_df)
