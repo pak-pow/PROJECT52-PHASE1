@@ -32,8 +32,15 @@ def print_statistic(df):
     print("-" * 40)
 
 def filter_data(df):
-    pass
+    print("[DATA FILTERING]: ")
+    print("-" * 40)
+    
+    high_crash_days = df[df['Crash_Reports'] > 10]
+    print("Days with > 10 crashes")
+    print(high_crash_days[['Date', 'Crash_Reports']])
+    print("-" * 40)
+    
 
 if __name__ == "__main__":
     app_df = load_data()
-    print_statistic(app_df)
+    filter_data(app_df)
