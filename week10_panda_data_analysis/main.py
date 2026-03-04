@@ -70,7 +70,9 @@ def group_data(df):
     print("[Total Revenue By Platform]: ")
     print(platform_revenue)
     
-    pass
+    platform_crashes = df.groupby('Platform')['Crash_Reports'].mean()
+    print(platform_crashes)
+    print('-' * 40)
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
