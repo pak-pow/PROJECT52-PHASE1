@@ -70,6 +70,8 @@ def group_data(df):
     print("[Total Revenue By Platform]: ")
     print(platform_revenue)
     
+    # `platform_crashes = df.groupby('Platform')['Crash_Reports'].mean()` is grouping the data in the DataFrame `df` by the 'Platform' column. It then calculates the mean (average) of the 'Crash_Reports' column for each unique value in the 'Platform' column. 
+    # The result is a Series where the index is the unique values in the 'Platform' column and the values are the average number of crash reports for each platform.
     platform_crashes = df.groupby('Platform')['Crash_Reports'].mean()
     print(platform_crashes)
     print('-' * 40)
