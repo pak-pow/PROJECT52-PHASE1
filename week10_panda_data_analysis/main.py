@@ -53,6 +53,8 @@ def filter_data(df):
     print(best_revenue_day[['Date', 'Revenue_USD']])
     print("-" * 40)
     
+def group_data(df): 
+    pass
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
