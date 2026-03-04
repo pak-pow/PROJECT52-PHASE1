@@ -54,6 +54,14 @@ def filter_data(df):
     print("-" * 40)
     
 def group_data(df): 
+    
+    print("[DATA GROUPING (Pivot Tables)]:")
+    print("-" * 40)
+    
+    platform_revenue = df.groupby('Platform')['Revenue_USD'].sum()
+    print("[Total Revenue By Platform]: ")
+    print(platform_revenue)
+    
     pass
 
 if __name__ == "__main__":
