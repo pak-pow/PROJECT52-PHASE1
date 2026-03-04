@@ -76,4 +76,5 @@ if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
     # assigns it to the variable `app_df`.
     app_df = load_data()
-    filter_data(app_df)
+    # filter_data(app_df)
+    group_data(app_df)
