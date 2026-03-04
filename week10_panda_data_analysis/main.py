@@ -58,7 +58,15 @@ def group_data(df):
     print("[DATA GROUPING (Pivot Tables)]:")
     print("-" * 40)
     
+    # `platform_revenue = df.groupby('Platform')['Revenue_USD'].sum()` is grouping the data in the
+    # DataFrame `df` by the 'Platform' column. It then calculates the sum of the 'Revenue_USD' column
+    # for each unique value in the 'Platform' column. The result is a Series where the index is the
+    # unique values in the 'Platform' column and the values are the total revenue (sum of
+    # 'Revenue_USD') for each platform.
     platform_revenue = df.groupby('Platform')['Revenue_USD'].sum()
+    
+    # The code snippet `print("[Total Revenue By Platform]: ")` is printing a header or title
+    # indicating that the following output will display the total revenue by platform.
     print("[Total Revenue By Platform]: ")
     print(platform_revenue)
     
