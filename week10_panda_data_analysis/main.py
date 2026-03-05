@@ -83,7 +83,7 @@ def export_data(df):
     print(summary_data)
     
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    export_path = os.path(current_dir, "Platform_Summary_Report.csv")
+    export_path = os.path.join(current_dir, "Platform_Summary_Report.csv")
     
     summary_data.to_csv(export_path)
 
