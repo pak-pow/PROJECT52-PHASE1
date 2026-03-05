@@ -77,11 +77,15 @@ def group_data(df):
     print('-' * 40)
     
 def export_data(df):
-    pass
+    
+    summary_data = df.groupby('Platform')[["Revenue_USD", "Crash_Reports"]].sum()
+    print(summary_data)
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
     # assigns it to the variable `app_df`.
     app_df = load_data()
     # filter_data(app_df)
-    group_data(app_df)
+    # group_data(app_df)
+    
+    export_data(app_df)
