@@ -86,6 +86,8 @@ def export_data(df):
     export_path = os.path.join(current_dir, "Platform_Summary_Report.csv")
     
     summary_data.to_csv(export_path)
+    
+    print(f"Success! Report has been exported to {export_path}")
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
