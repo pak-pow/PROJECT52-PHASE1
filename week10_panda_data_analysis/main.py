@@ -75,6 +75,9 @@ def group_data(df):
     platform_crashes = df.groupby('Platform')['Crash_Reports'].mean()
     print(platform_crashes)
     print('-' * 40)
+    
+def export_data(df):
+    pass
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
