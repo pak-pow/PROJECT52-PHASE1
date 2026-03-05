@@ -79,7 +79,13 @@ def group_data(df):
 def export_data(df):
     
     summary_data = df.groupby('Platform')[["Revenue_USD", "Crash_Reports"]].sum()
+    print("Review of Data Being Exported.")
     print(summary_data)
+    
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    export_path = os.path(current_dir, "Platform_Summary_Report.csv")
+    
+    summary_data.to_csv(export_path)
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
