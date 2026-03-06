@@ -106,8 +106,21 @@ def clean_code(df):
     print(df)
     print("\n" + "="*40 + "\n")
     
+    # The line `df['Downloads'] = df['Downloads'].fillna(0)` is filling any missing (NaN) values in
+    # the 'Downloads' column of the DataFrame `df` with the value 0. This operation replaces any NaN
+    # values in the 'Downloads' column with 0, ensuring that there are no missing values in that column.
     df['Downloads'] = df['Downloads'].fillna(0)
+    
+    # The line `df['Crash_Reports'] = df['Crash_Reports'].fillna(0)` is filling any missing (NaN)
+    # values in the 'Crash_Reports' column of the DataFrame `df` with the value 0. This operation
+    # ensures that if there are any missing values in the 'Crash_Reports' column, they are replaced
+    # with 0. This is a common practice in data cleaning to handle missing data and ensure consistency
+    # in the dataset before performing further analysis or calculations.
     df['Crash_Reports'] = df['Crash_Reports'].fillna(0)
+    
+    # The line `df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])` is performing data
+    # cleaning by removing any rows from the DataFrame `df` where either the 'Revenue_USD' or
+    # 'Active_Users' column has missing values (NaN).
     df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])
     
     print("CLEANED DATA (Ready for Analysis):")
