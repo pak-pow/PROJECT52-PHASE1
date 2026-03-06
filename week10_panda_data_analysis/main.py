@@ -98,8 +98,21 @@ def export_data(df):
     
     print(f"Success! Report has been exported to {export_path}")
 
-def clean_code(df):
-    pass
+def clean_code(df): 
+    print("\n🧹 DATA CLEANING (Handling NaNs):")
+    print("-" * 40)
+    
+    print("RAW, MESSY DATA:")
+    print(df)
+    print("\n" + "="*40 + "\n")
+    
+    df['Downloads'] = df['Downloads'].fillna(0)
+    df['Crash_Reports'] = df['Crash_Reports'].fillna(0)
+    df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])
+    
+    print("2️⃣ CLEANED DATA (Ready for Analysis):")
+    print(df_cleaned)
+    print("-" * 40)
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
