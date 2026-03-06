@@ -78,13 +78,22 @@ def group_data(df):
     
 def export_data(df):
     
+    # The line `summary_data = df.groupby('Platform')[["Revenue_USD", "Crash_Reports"]].sum()` is
+    # performing a groupby operation on the DataFrame `df` based on the 'Platform' column. It then selects
+    # the columns 'Revenue_USD' and 'Crash_Reports' for further analysis.
     summary_data = df.groupby('Platform')[["Revenue_USD", "Crash_Reports"]].sum()
     print("Review of Data Being Exported.")
     print(summary_data)
     
+    # The code snippet `current_dir = os.path.dirname(os.path.abspath(__file))` is used to get the
+    # directory path of the current Python script file. It first obtains the absolute path of the
+    # current script file using `os.path.abspath(__file__)` and then extracts the directory path from
+    # the absolute path using `os.path.dirname()`.
     current_dir = os.path.dirname(os.path.abspath(__file__))
     export_path = os.path.join(current_dir, "Platform_Summary_Report.csv")
     
+    # `summary_data.to_csv(export_path)` is a method call that is used to export the data contained in
+    # the `summary_data` DataFrame to a CSV file located at the path specified by `export_path`.
     summary_data.to_csv(export_path)
     
     print(f"Success! Report has been exported to {export_path}")
