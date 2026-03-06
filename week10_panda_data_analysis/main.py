@@ -98,6 +98,9 @@ def export_data(df):
     
     print(f"Success! Report has been exported to {export_path}")
 
+def clean_code(df):
+    pass
+
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
     # assigns it to the variable `app_df`.
