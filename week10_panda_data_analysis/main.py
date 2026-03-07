@@ -13,7 +13,36 @@ def load_data():
     # returns the dataframe so other functions can use it
     return pd.read_csv(csv_path)
     
+
+def clean_data(df): 
+    print("\nDATA CLEANING (Handling NaNs):")
+    print("-" * 40)
     
+    print("RAW, MESSY DATA:")
+    print(df)
+    print("\n" + "="*40 + "\n")
+    
+    # The line `df['Downloads'] = df['Downloads'].fillna(0)` is filling any missing (NaN) values in
+    # the 'Downloads' column of the DataFrame `df` with the value 0. This operation replaces any NaN
+    # values in the 'Downloads' column with 0, ensuring that there are no missing values in that column.
+    df['Downloads'] = df['Downloads'].fillna(0)
+    
+    # The line `df['Crash_Reports'] = df['Crash_Reports'].fillna(0)` is filling any missing (NaN)
+    # values in the 'Crash_Reports' column of the DataFrame `df` with the value 0. This operation
+    # ensures that if there are any missing values in the 'Crash_Reports' column, they are replaced
+    # with 0. This is a common practice in data cleaning to handle missing data and ensure consistency
+    # in the dataset before performing further analysis or calculations.
+    df['Crash_Reports'] = df['Crash_Reports'].fillna(0)
+    
+    # The line `df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])` is performing data
+    # cleaning by removing any rows from the DataFrame `df` where either the 'Revenue_USD' or
+    # 'Active_Users' column has missing values (NaN).
+    df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])
+    
+    # The line `return df_cleaned` in the `clean_data` function is returning a new DataFrame that has
+    # undergone data cleaning operations.
+    return df_cleaned
+
 def print_statistic(df):
     print("CORE STATISTIC")
     print("-" * 40)
@@ -102,41 +131,14 @@ def export_data(df):
     
     print(f"Success! Report has been exported to {export_path}")
 
-def clean_code(df): 
-    print("\nDATA CLEANING (Handling NaNs):")
-    print("-" * 40)
-    
-    print("RAW, MESSY DATA:")
-    print(df)
-    print("\n" + "="*40 + "\n")
-    
-    # The line `df['Downloads'] = df['Downloads'].fillna(0)` is filling any missing (NaN) values in
-    # the 'Downloads' column of the DataFrame `df` with the value 0. This operation replaces any NaN
-    # values in the 'Downloads' column with 0, ensuring that there are no missing values in that column.
-    df['Downloads'] = df['Downloads'].fillna(0)
-    
-    # The line `df['Crash_Reports'] = df['Crash_Reports'].fillna(0)` is filling any missing (NaN)
-    # values in the 'Crash_Reports' column of the DataFrame `df` with the value 0. This operation
-    # ensures that if there are any missing values in the 'Crash_Reports' column, they are replaced
-    # with 0. This is a common practice in data cleaning to handle missing data and ensure consistency
-    # in the dataset before performing further analysis or calculations.
-    df['Crash_Reports'] = df['Crash_Reports'].fillna(0)
-    
-    # The line `df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])` is performing data
-    # cleaning by removing any rows from the DataFrame `df` where either the 'Revenue_USD' or
-    # 'Active_Users' column has missing values (NaN).
-    df_cleaned = df.dropna(subset=['Revenue_USD', 'Active_Users'])
-    
-    print("CLEANED DATA (Ready for Analysis):")
-    print(df_cleaned)
-    print("-" * 40)
 
 if __name__ == "__main__":
     # The code snippet `app_df = load_data()` loads data from a CSV file into a pandas DataFrame and
     # assigns it to the variable `app_df`.
-    app_df = load_data()
-    # filter_data(app_df)
-    # group_data(app_df)
-    # export_data(app_df)
+    raw_df = load_data()
     
-    clean_code(app_df)
+    clean_df = clean_data(raw_df)
+    print_statistic(clean_df)
+    group_data(clean_df)
+    
+    export_data(clean_df)
