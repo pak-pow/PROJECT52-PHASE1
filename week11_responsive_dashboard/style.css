@@ -9,3 +9,18 @@ body {
     background-color: #f4f7f6;
     color: #333;
 }
+
+.dashboard-container {
+    display: grid;
+    height: 100vh;
+
+    /* The `grid-template-columns: 250px 1fr;` property in CSS is defining the sizing of the columns in a grid layout. */
+    grid-template-columns: 250px 1fr;
+    
+    /* The `grid-template-rows: 70px 1fr;` property in CSS is defining the sizing of the rows in a grid
+    layout. In this case, it is specifying that the first row should have a height of 70 pixels, and the second row should take up the remaining available space (1fr). */
+    grid-template-rows: 70px 1fr;
+    grid-template-areas: 
+        "sidebar header" 
+        "sidebar main";
+}
