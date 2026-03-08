@@ -33,11 +33,11 @@ Phase 1 focuses on building a solid foundation in individual technologies. Each 
 | 4 | Mathematical Visualization Tool | Python + Math | Matplotlib, NumPy, Functions | 4h | Done |
 | 5 | JavaScript Interactive Quiz | Frontend | DOM Manipulation, Event Listeners | 3h | Done |
 | 6 | Web Scraper for News Headlines | Python | BeautifulSoup, Requests, Data Parsing | 4h | Done |
-| 7 | Landing Page with TailwindCSS | Frontend | Utility-First CSS, Component Design | 3h | In-Progress |
-| 8 | Algorithm Visualizer (Sorting) | Python + Math | Pygame, Algorithm Implementation | 5h | Not Started |
-| 9 | Form Validation Library | Frontend | JavaScript Functions, Regex | 3h | Not Started |
-| 10 | Python Data Analysis Script | Python | Pandas, CSV Processing, Statistics | 4h | Not Started |
-| 11 | Responsive Dashboard UI | Frontend | CSS Grid, Flexbox, Media Queries | 5h | Not Started |
+| 7 | Landing Page with TailwindCSS | Frontend | Utility-First CSS, Component Design | 3h | Done |
+| 8 | Algorithm Visualizer (Sorting) | Python + Math | Pygame, Algorithm Implementation | 5h | Done |
+| 9 | Form Validation Library | Frontend | JavaScript Functions, Regex | 3h | Done |
+| 10 | Python Data Analysis Script | Python | Pandas, CSV Processing, Statistics | 4h | Done |
+| 11 | Responsive Dashboard UI | Frontend | CSS Grid, Flexbox, Media Queries | 5h | In-Progress |
 | 12 | Calculator with GUI | Python | Tkinter, Event Handling, OOP | 4h | Not Started |
 
 **Total Estimated Time:** 43 hours over 12 weeks (~3.5 hours/week)
