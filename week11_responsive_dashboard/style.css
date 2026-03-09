@@ -37,6 +37,7 @@ body {
     background-color: #ffffff;
     border-bottom: 1px solid #ddd;
     padding: 0 30px;
+    justify-content: space-between;
 }
 
 .main-content {
@@ -66,4 +67,64 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     margin-bottom: 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.cards-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    flex: 1;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    background-color: #f4f7f6;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.card-info h3 {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.card-info .stat {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.error-card .card-icon {
+    background-color: #ffeaea;
+}
+.error-card .stat {
+    color: #e74c3c;
 }
