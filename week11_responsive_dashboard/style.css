@@ -128,3 +128,11 @@ body {
 .error-card .stat {
     color: #e74c3c;
 }
+
+.table-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+}
