@@ -136,3 +136,27 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     margin-top: 30px;
 }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th {
+    padding: 15px;
+    background-color: #f4f7f6;
+    color: #7f8c8d;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ddd;
+}
+
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #2c3e50;
+    font-weight: 500;
+}
