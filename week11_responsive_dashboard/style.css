@@ -1,3 +1,19 @@
+@media(max-width: 768px){
+    .dashboard-container{
+        grid-template-rows: 70px auto 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "main";
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,8 +36,8 @@ body {
     /* The `grid-template-rows: 70px 1fr;` property in CSS is defining the sizing of the rows in a grid
     layout. In this case, it is specifying that the first row should have a height of 70 pixels, and the second row should take up the remaining available space (1fr). */
     grid-template-rows: 70px 1fr;
-    grid-template-areas: 
-        "sidebar header" 
+    grid-template-areas:
+        "sidebar header"
         "sidebar main";
 }
 
