@@ -226,3 +226,67 @@ body {
         padding: 15px;     }
 
 }
+
+.theme-btn {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.theme-btn:hover {
+    background: #1a252f;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+
+
+body, .header, .card, .sidebar, .table-container, .data-table th, .data-table td {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme .header,
+body.dark-theme .card,
+body.dark-theme .table-container {
+    background-color: #1e1e1e;
+    border-color: #333;
+    box-shadow: none;
+}
+
+body.dark-theme .sidebar {
+    background-color: #0a0a0a;
+    border-right: 1px solid #333;
+}
+
+body.dark-theme h2, 
+body.dark-theme .card-info .stat,
+body.dark-theme .data-table td {
+    color: #ffffff;
+}
+
+body.dark-theme .data-table th {
+    background-color: #2a2a2a;
+    color: #aaa;
+    border-bottom: 2px solid #444;
+}
+
+body.dark-theme .data-table tbody tr:nth-child(even) {
+    background-color: #242424;
+}
+
+body.dark-theme .data-table tbody tr:hover {
+    background-color: #2a2a2a;
+}
