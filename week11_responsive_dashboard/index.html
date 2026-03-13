@@ -114,6 +114,12 @@
         <script>
             const toggleBtn = document.getElementById('theme-toggle');
             const body = document.body;
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const dashboard = document.querySelector('.dashboard-container');
+
+            sidebarToggle.addEventListener('click', () => {
+                dashboard.classList.toggle('collapsed');
+            })
 
             toggleBtn.addEventListener('click', () => {
                 body.classList.toggle('dark-theme');
