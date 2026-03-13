@@ -185,47 +185,56 @@ body {
 .pending { background-color: #fef9e7; color: #f1c40f; }
 .error   { background-color: #ffeaea; color: #e74c3c; }
 
-@media(max-width: 768px){
-    .dashboard-container{
-        grid-template-rows: 70px auto 1fr;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "header"
-            "sidebar"
-            "main";
-    }
-
-    .sidebar {
-        padding: 10px;
-    }
-
-    .sidebar h2 {
-        display: none;
-    }
-
-    .sidebar ul {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .sidebar li {
-        padding: 5px;
-        border-bottom: none;
-        font-size: 0.9rem;
-    }
-
-    .cards-wrapper {
-        flex-direction: column;
-    }
-
-    .table-container {
-        overflow-x: auto;
-    }
-
-    .main-content {
-        padding: 15px;     }
-
+.dashboard-container {
+    transition: grid-template-columns 0.3s ease;
 }
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2c3e50;
+    transition: color 0.2s ease;
+}
+
+/* Make sure the hamburger icon changes color in Dark Mode! */
+body.dark-theme .icon-btn {
+    color: #e0e0e0;
+}
+
+/* 3. Align the sidebar icons and text */
+.sidebar li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+/* 4. THE COLLAPSED STATE OVERRIDES */
+/* When the dashboard has the 'collapsed' class, shrink the first column to 70px! */
+.dashboard-container.collapsed {
+    grid-template-columns: 70px 1fr;
+}
+
+/* When collapsed, hide the main logo and the text spans */
+.dashboard-container.collapsed .sidebar h2,
+.dashboard-container.collapsed .sidebar .nav-text {
+    display: none;
+}
+
+/* Center the remaining emojis when collapsed */
+.dashboard-container.collapsed .sidebar li {
+    justify-content: center;
+    padding: 15px 0;
+}
+
 
 .theme-btn {
     background: #2c3e50;
@@ -290,3 +299,46 @@ body.dark-theme .data-table tbody tr:nth-child(even) {
 body.dark-theme .data-table tbody tr:hover {
     background-color: #2a2a2a;
 }
+
+@media(max-width: 768px){
+    .dashboard-container{
+        grid-template-rows: 70px auto 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "main";
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sidebar li {
+        padding: 5px;
+        border-bottom: none;
+        font-size: 0.9rem;
+    }
+
+    .cards-wrapper {
+        flex-direction: column;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .main-content {
+        padding: 15px;     }
+
+}
+
