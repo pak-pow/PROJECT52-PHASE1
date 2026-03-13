@@ -204,12 +204,9 @@ body {
     transition: color 0.2s ease;
 }
 
-/* Make sure the hamburger icon changes color in Dark Mode! */
 body.dark-theme .icon-btn {
     color: #e0e0e0;
 }
-
-/* 3. Align the sidebar icons and text */
 .sidebar li {
     display: flex;
     align-items: center;
@@ -217,19 +214,15 @@ body.dark-theme .icon-btn {
     font-size: 1.1rem;
 }
 
-/* 4. THE COLLAPSED STATE OVERRIDES */
-/* When the dashboard has the 'collapsed' class, shrink the first column to 70px! */
 .dashboard-container.collapsed {
     grid-template-columns: 70px 1fr;
 }
 
-/* When collapsed, hide the main logo and the text spans */
 .dashboard-container.collapsed .sidebar h2,
 .dashboard-container.collapsed .sidebar .nav-text {
     display: none;
 }
 
-/* Center the remaining emojis when collapsed */
 .dashboard-container.collapsed .sidebar li {
     justify-content: center;
     padding: 15px 0;
