@@ -205,6 +205,22 @@ body {
     transition: all 0.3s ease;
 }
 
+.search-wrapper:focus-within {
+    border-color: #18bc9c;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(24, 188, 156, 0.3);
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    padding: 8px;
+    outline: none;
+    font-size: 0.95rem;
+    color: #333;
+    width: 250px;
+}
+
 .icon-btn {
     background: none;
     border: none;
