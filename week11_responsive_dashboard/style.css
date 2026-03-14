@@ -192,7 +192,17 @@ body {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 15;
+    gap: 15px;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f4f7f6;
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 
 .icon-btn {
