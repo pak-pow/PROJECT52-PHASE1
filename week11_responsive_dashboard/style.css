@@ -38,6 +38,9 @@ body {
     border-bottom: 1px solid #ddd;
     padding: 0 30px;
     justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .main-content {
