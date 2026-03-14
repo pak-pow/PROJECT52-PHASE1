@@ -319,6 +319,20 @@ body.dark-theme .data-table tbody tr:hover {
     background-color: #2a2a2a;
 }
 
+body.dark-theme .search-wrapper {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-theme .search-wrapper:focus-within {
+    border-color: #18bc9c;
+    background-color: #1e1e1e;
+}
+
+body.dark-theme .search-input {
+    color: #e0e0e0;
+}
+
 @media(max-width: 768px){
     .dashboard-container{
         grid-template-rows: 70px auto 1fr;
