@@ -8,16 +8,35 @@ class Calculator:
         self.root.resizable(False, False)
         self.root.configure(bg="#f4f7f6") 
         
-        self.placeholder = tk.Label(
+        self.display = tk.Entry(
             self.root, 
-            text="GUI Initialized", 
-            font=("Segoe UI", 16), 
-            bg="#f4f7f6", 
-            fg="#2c3e50"
+            font=("Segeo UI", 32, "bold"),
+            bg="#ffffff",
+            fg="#2c3e50",
+            borderwidth=0,
+            justify="right"
         )
-        self.placeholder.pack(pady=200) 
         
-    
+        self.display.pack(
+            expand=False, 
+            fill="both", 
+            ipady=20,
+            pady=20,
+            padx=20
+        )
+        
+        self.button_frame = tk.Frame(
+            self.root,
+            bg="#f4f7f6"
+        )
+        
+        self.button_frame.pack(
+            expand=True,
+            fill="both",
+            padx=20,
+            pady=(0,20)
+        )
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = Calculator(root)
