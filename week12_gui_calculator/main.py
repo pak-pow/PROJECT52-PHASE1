@@ -36,6 +36,14 @@ class Calculator:
             padx=20,
             pady=(0,20)
         )
+        
+        tk.Label(
+            self.button_frame, 
+            text="Button Grid", 
+            bg="#f4f7f6", 
+            fg="#8c96b0",
+            font=("Segoe UI", 12)
+        ).pack(pady=100)
 
 if __name__ == "__main__":
     root = tk.Tk()
