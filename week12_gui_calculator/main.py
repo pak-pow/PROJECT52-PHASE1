@@ -61,6 +61,24 @@ class Calculator:
             pady=(0,20)
         )
         
+        for (text, row, col) in buttons:
+            btn = tk.Button(
+                self.button_frame,
+                text=text,
+                font=("Segoe UI", 18, "bold"),
+                bg="#ffffff",
+                fg="#2c3e50",
+                borderwidth=0,
+                cursor="hand2"
+            )
+
+            btn.grid(
+                row=row, 
+                column=col, 
+                sticky="nsew", 
+                padx=5, 
+                pady=5
+            )
 
 
 if __name__ == "__main__":
