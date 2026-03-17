@@ -79,6 +79,10 @@ class Calculator:
                 padx=5, 
                 pady=5
             )
+            
+        for i in range(4):
+            self.button_frame.grid_rowconfigure(i, weight=1)
+            self.button_frame.grid_columnconfigure(i, weight=1)
 
 
 if __name__ == "__main__":
