@@ -8,6 +8,13 @@ class Calculator:
         self.root.resizable(False, False)
         self.root.configure(bg="#f4f7f6") 
         
+        buttons = [
+            ('7', 0, 0), ('8', 0, 1), ('9', 0, 2), ('/', 0, 3),
+            ('4', 1, 0), ('5', 1, 1), ('6', 1, 2), ('*', 1, 3),
+            ('1', 2, 0), ('2', 2, 1), ('3', 2, 2), ('-', 2, 3),
+            ('C', 3, 0), ('0', 3, 1), ('=', 3, 2), ('+', 3, 3)
+        ]
+        
         """
         `self.display = tk.Entry(` is creating an Entry widget in the tkinter GUI application. An
         Entry widget is used to display a single-line text field where the user can enter or display
@@ -54,13 +61,7 @@ class Calculator:
             pady=(0,20)
         )
         
-        tk.Label(
-            self.button_frame, 
-            text="Button Grid", 
-            bg="#f4f7f6", 
-            fg="#8c96b0",
-            font=("Segoe UI", 12)
-        ).pack(pady=100)
+
 
 if __name__ == "__main__":
     root = tk.Tk()
