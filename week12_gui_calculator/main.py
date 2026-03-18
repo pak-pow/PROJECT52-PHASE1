@@ -69,7 +69,8 @@ class Calculator:
                 bg="#ffffff",
                 fg="#2c3e50",
                 borderwidth=0,
-                cursor="hand2"
+                cursor="hand2",
+                command=lambda t=text: self.on_button_click(t)
             )
 
             btn.grid(
@@ -83,6 +84,35 @@ class Calculator:
         for i in range(4):
             self.button_frame.grid_rowconfigure(i, weight=1)
             self.button_frame.grid_columnconfigure(i, weight=1)
+            
+    def on_button_click(self, char):
+        """Handles all button click events and math calculations."""
+        
+        if char == 'C':
+            # CLEAR BUTTON: Delete everything from index 0 to the END
+            self.display.delete(0, tk.END)
+            
+        elif char == '=':
+            # EQUALS BUTTON: Try to calculate the math equation
+            try:
+                # 1. Get the math string from the screen (e.g., "7+5")
+                expression = self.display.get()
+                
+                # 2. eval() is a built-in Python superpower that solves string math!
+                result = eval(expression)
+                
+                # 3. Clear the screen and type the answer
+                self.display.delete(0, tk.END)
+                self.display.insert(tk.END, str(result))
+                
+            except Exception:
+                # ERROR HANDLING: If they try to divide by zero or type "5++", catch it!
+                self.display.delete(0, tk.END)
+                self.display.insert(tk.END, "Error")
+                
+        else:
+            # NORMAL BUTTONS: Just type the character onto the screen!
+            self.display.insert(tk.END, char)
 
 
 if __name__ == "__main__":
