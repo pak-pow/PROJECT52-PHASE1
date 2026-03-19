@@ -85,6 +85,10 @@ class Calculator:
             self.button_frame.grid_rowconfigure(i, weight=1)
             self.button_frame.grid_columnconfigure(i, weight=1)
             
+            self.root.bind('<Return>', lambda event: self.on_button_click('='))
+            self.root.bind('<Escape>', lambda event: self.on_button_click('C'))
+            self.display.focus_set()
+            
     def on_button_click(self, char):
         """Handles all button click events and math calculations."""
         
