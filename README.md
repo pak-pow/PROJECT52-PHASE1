@@ -37,8 +37,8 @@ Phase 1 focuses on building a solid foundation in individual technologies. Each 
 | 8 | Algorithm Visualizer (Sorting) | Python + Math | Pygame, Algorithm Implementation | 5h | Done |
 | 9 | Form Validation Library | Frontend | JavaScript Functions, Regex | 3h | Done |
 | 10 | Python Data Analysis Script | Python | Pandas, CSV Processing, Statistics | 4h | Done |
-| 11 | Responsive Dashboard UI | Frontend | CSS Grid, Flexbox, Media Queries | 5h | In-Progress |
-| 12 | Calculator with GUI | Python | Tkinter, Event Handling, OOP | 4h | Not Started |
+| 11 | Responsive Dashboard UI | Frontend | CSS Grid, Flexbox, Media Queries | 5h |  Done  |
+| 12 | Calculator with GUI | Python | Tkinter, Event Handling, OOP | 4h |  Done  |
 
 **Total Estimated Time:** 43 hours over 12 weeks (~3.5 hours/week)
 
