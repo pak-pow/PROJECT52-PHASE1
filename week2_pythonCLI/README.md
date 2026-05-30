@@ -1,60 +1,35 @@
-# 🐍 Week 02: Python CLI Task Manager
+# Week 2: Python CLI Task Manager
 
-A lightweight, command-line based task management tool built with Python 3.
-Engineered as part of **Project 52**.
+**Category:** Backend | **Status:** Completed
 
-## 🚀 Features
-* **Persistence:** Tasks are saved to `data/tasks.json` automatically.
-* **CRUD Operations:** Create, Read, Update, and Delete tasks.
-* **Track Status:** Mark tasks as pending or complete.
+## About
 
-## 🛠️ Installation
-1.  Ensure you have Python 3 installed.
-2.  Clone this repository.
-3.  Navigate to the source folder:
-    ```bash
-    cd src
-    ```
+The first Python project of Phase 1. Moving away from the browser entirely, this project is a command-line application that runs in the terminal. The goal was to learn how to build an interactive program that accepts user input, processes it through structured logic, and persists state between sessions using a JSON file.
 
-## 🎮 Usage Guide
+The application logic lives in `src/taskmaster.py`. Tasks are saved to `data/tasks.json`, meaning the task list survives after the program closes. This is a foundational pattern — separating the program logic from its data storage — that reappears in more complex forms throughout the rest of Phase 1 and Phase 2.
 
-### 1. Add a Task
-```bash
-python taskmaster.py add --title "Buy Groceries"
+## What It Does
 
-```
+A terminal-based task manager where users can add, view, complete, and delete tasks. All tasks are persisted to a local JSON file so they survive between sessions.
 
-### 2. List All Tasks
+## Learning Objectives
 
-```bash
-python taskmaster.py list
+- Building interactive command-line interfaces in Python
+- Handling user input, loops, and conditional branching
+- Reading and writing JSON files for lightweight data persistence
+- Structuring a Python project with separate `src/` and `data/` directories
+
+## Project Structure
 
 ```
-
-*Displays a table of IDs, Status, and Titles.*
-
-### 3. Complete a Task
-
-```bash
-python taskmaster.py complete --id 1
-
+week2_pythonCLI/
+├── src/
+│   └── taskmaster.py   # Main CLI application logic
+└── data/
+    └── tasks.json      # Persisted task data (JSON)
 ```
 
-### 4. Edit a Task (Fix Typos)
+## Tech Stack
 
-```bash
-python taskmaster.py edit --id 1 --title "Buy Organic Groceries"
-
-```
-
-### 5. Delete a Task
-
-```bash
-python taskmaster.py delete --id 1
-
-```
-
-## 📂 Project Structure
-
-* `src/taskmaster.py`: The Logic Core (Entry Point).
-* `data/tasks.json`: The Database (Auto-generated).
+- **Language:** Python 3
+- **Storage:** JSON file
